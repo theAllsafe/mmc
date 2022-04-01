@@ -14,20 +14,51 @@ import Piping from './res/Piping.svg';
 import Fish from './res/Fish.svg';
 import filesearch from './res/filesearch.svg';
 import Edit from './res/Edit.svg';
+import share from './res/share.svg';
+import masjidicon1 from './res/masjidicon1.svg';
+import fillshare from './res/fillshare.svg';
 import timetablebg from './res/timetablebg.svg';
 import publish from './res/publish.svg';
 import profileicon from './res/profile.svg';
 import postcheck from './res/postcheck.svg';
+import more1 from './res/more1.svg';
+import more2 from './res/more2.svg';
+import more3 from './res/more3.svg';
+import more4 from './res/more4.svg';
+import veracc from './res/veracc.svg';
+import call from './res/call.svg';
+import gulamicon from './res/gulamicon.svg';
+import message from './res/message.svg';
+import arrowright from './res/arrowright.svg';
+import uploadedpic1 from './res/uploadedpic1.svg';
+import donate from './res/donate.svg';
+import validation from './res/validation.svg';
+import spread from './res/spread.svg';
+import cart from './res/cart.svg';
+import tshirt from './res/tshirt.svg';
+import ring from './res/ring.svg';
+import meat from './res/meat.svg';
+import star from './res/star.svg';
+import advert from './res/advert.svg';
+import advertimg from './res/advertimg.svg';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import ImageIcon from '@mui/icons-material/Image';
 import VideocamOutlinedIcon from '@mui/icons-material/VideocamOutlined';
+import PhotoCameraOutlinedIcon from '@mui/icons-material/PhotoCameraOutlined';
+import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import FmdGoodIcon from '@mui/icons-material/FmdGood';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { Link } from "react-router-dom";
 // import { api } from "../../../helper/instance";
 
 const useStyles = makeStyles((theme) => ({
     maincont: {
-        height: "235vh",
         background: "#545A70",
     },
     timetable: {
@@ -46,16 +77,16 @@ const useStyles = makeStyles((theme) => ({
         marginTop: "23px",
     },
     recommended: {
-        height: "33%",
         background: "#202836",
         borderRadius: "35px",
         color: "white",
+        paddingBottom: "20px",
     },
     post: {
-        height: "21.5%",
         background: "#202836",
         borderRadius: "35px",
         color: "white",
+        paddingBottom: "15px",
     },
     postcheck: {
         marginTop: "13px",
@@ -91,10 +122,10 @@ const useStyles = makeStyles((theme) => ({
         background: "#545A70",
     },
     writes: {
-        height: "18%",
         background: "#202836",
         borderRadius: "20px",
         color: "white",
+        paddingBottom: "15px",
     },
     notif: {
         position: "relative",
@@ -125,7 +156,73 @@ const useStyles = makeStyles((theme) => ({
             outline: "none",
         },
     },
-    
+    feedpost1: {
+        background: "#202836",
+        borderRadius: "20px",
+        color: "white",
+        paddingBottom: "15px"
+    },
+    lcs: {
+        position: "relative",
+        left: "65%",
+        bottom: "4%",
+    },
+    more2: {
+        position: "relative",
+        right: "15%",
+    },
+    more3: {
+        position: "relative",
+        right: "30%",
+    },
+    more4: {
+        position: "relative",
+        right: "46%",
+    },
+    visitedmasjid: {
+        background: "#202836",
+        borderRadius: "35px",
+        color: "white",
+    },
+    verify: {
+        position: "relative",
+        left: "81%",
+        bottom: "87%",
+    },
+    verify1: {
+        position: "relative",
+        left: "62%",
+        bottom: "79%",
+    },
+    local: {
+        background: "#202836",
+        borderRadius: "35px",
+        color: "white",
+        paddingBottom: "15px",
+    },
+    verify2: {
+        position: "relative",
+        left: "65%",
+        bottom: "45%",
+    },
+    help: {
+        background: "#202836",
+        borderRadius: "35px",
+        color: "white",
+        paddingBottom: "12px",
+    },
+    purchases: {
+        background: "#202836",
+        borderRadius: "35px",
+        color: "white",
+        paddingBottom: "15px",
+    },
+    advert: {
+        background: "#202836",
+        borderRadius: "35px",
+        color: "white",
+        marginBottom: "15px",
+    },
 }));
 
 
@@ -140,7 +237,7 @@ const Feed = () => {
             <div className={`w-100 ${classes.maincont}`}>
                 <div className="container mx-auto pt-3">
                     <div className="grid grid-cols-12 gap-3">
-                        <div class="col-span-3 ">
+                        <div class="col-span-3">
                             <div className={` ${classes.timetable}`}>
                                 <p className="lg:text-xl py-3">Namaz time table</p>
                                 <p className="border-t border-white"></p>
@@ -401,21 +498,440 @@ const Feed = () => {
                                         <img src={profileicon} alt="profile" className={`h-10 w-10 xl:mx-6  ${classes.profileicon}`} />
                                     </div>
                                     <div class="">
-                                        <textarea className={classes.texta} rows="5" cols="65" placeholder="Write something..."></textarea>
+                                        <textarea className={classes.texta} rows="5"  placeholder="Write something..."></textarea>
                                     </div>
                                 </div>
-                                <div className="w-1/2 h-20 flex flex-row">
-                                    <div className="h-10 w-24 bg-slate-400 ml-3">
-                                        <span></span>
-                                        <p></p>
+                                <div className="w-1/2 flex flex-row">
+                                    <div className="h-10 w-28 bg-slate-400 text-slate-800 rounded-3xl ml-3 flex flex-row items-center justify-evenly">
+                                        <span>
+                                            <PhotoCameraOutlinedIcon />
+                                        </span>
+                                        <p>Media</p>
                                     </div>
-                                    <div className="h-10 w-32 bg-slate-400 ml-3">
+                                    <div className="h-10 w-44 bg-slate-400 text-slate-800 rounded-3xl ml-3 flex flex-row items-center justify-evenly">
+                                        <span>
+                                            <img src={share} alt="share" />
+                                        </span>
+                                        <p>Sharing option</p>
+                                        <span><KeyboardArrowDownIcon /></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={`${classes.feedpost1}`}>
+                                <div className="profilein flex flex-row mt-3 p-4 ">
+                                    <img src={profileicon} alt="profilepic" />
+                                    <div className="w-4/5 flex flex-col text-left pl-3">
+                                        <p>Alishba Sayeed</p>
+                                        <p className="text-slate-300 text-sm"><i>july 13, 2021 at 03:32pm</i></p>
+                                    </div>
+                                    <div>
+                                        <MoreVertIcon />
+                                    </div>
+                                </div>
+                                <div className="flex justify-center">
+                                    <img src={uploadedpic1} alt="uploadedpic1" />
+                                </div>
+                                <div className={`w-36 flex justify-evenly ${classes.lcs}`}>
+                                    <div className="h-10 w-10 bg-blue-400 rounded-full items-center flex justify-center">
+                                        <ChatBubbleIcon />
+                                    </div>
+                                    <div className="h-10 w-10 bg-blue-400 rounded-full items-center flex justify-center">
+                                        <img src={fillshare} alt="fillshare" />
+                                    </div>
+                                    <div className="h-10 w-10 bg-slate-400 rounded-full items-center flex justify-center">
+                                        <FavoriteIcon />
+                                    </div>
+                                </div>
+                                <div className="flex flex-row p-3 pt-0">
+                                    <div className="w-32 flex flex-row">
+                                        <img src={more1} alt="more1" />
+                                        <img src={more2} alt="more2" className={classes.more2} />
+                                        <img src={more3} alt="more3" className={classes.more3} />
+                                        <img src={more4} alt="more4" className={classes.more4} />
+                                    </div>
+                                    <div className="w-1/3 flex flex-col text-left pl-3 ">
+                                        <p>Abu Hurairah</p>
+                                        <p className="text-slate-300 text-sm"><i>and a 100 more liked this</i></p>
+                                    </div>
+                                    <div className="w-5/12 flex flex-row text-left pl-3 items-center justify-evenly">
+                                        <p className="pr-6 "><span><FavoriteBorderIcon /></span><i> 2K</i></p>
+                                        <div className="flex flex-row pr-6 items-center"><span><img src={fillshare} alt="fillshare" /></span><p className="pl-2"><i> 24K</i></p></div>
+                                        <p className=""><span><ChatBubbleIcon /></span><i> 200</i></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={`${classes.feedpost1}`}>
+                                <div className="profilein flex flex-row mt-3 p-4 ">
+                                    <img src={profileicon} alt="profilepic" />
+                                    <div className="w-4/5 flex flex-col text-left pl-3">
+                                        <p className="flex items-center">Alishba Sayeed <span className="px-4"><img src={arrowright} alt="arrowright" /></span><i>posted in <span className="text-green-500">Masjid Quba</span></i></p>
+                                        <p className="text-slate-300 text-sm"><i>july 13, 2021 at 03:32pm</i></p>
+                                    </div>
+                                    <div>
+                                        <MoreVertIcon />
+                                    </div>
+                                </div>
+                                <div className="flex justify-center">
+                                    <img src={uploadedpic1} alt="uploadedpic1" />
+                                </div>
+                                <div className={`w-36 flex justify-evenly ${classes.lcs}`}>
+                                    <div className="h-10 w-10 bg-blue-400 rounded-full items-center flex justify-center">
+                                        <ChatBubbleIcon />
+                                    </div>
+                                    <div className="h-10 w-10 bg-blue-400 rounded-full items-center flex justify-center">
+                                        <img src={fillshare} alt="fillshare" />
+                                    </div>
+                                    <div className="h-10 w-10 bg-slate-400 rounded-full items-center flex justify-center">
+                                        <FavoriteIcon />
+                                    </div>
+                                </div>
+                                <div className="flex flex-row p-3 pt-0">
+                                    <div className="w-32 flex flex-row">
+                                        <img src={more1} alt="more1" />
+                                        <img src={more2} alt="more2" className={classes.more2} />
+                                        <img src={more3} alt="more3" className={classes.more3} />
+                                        <img src={more4} alt="more4" className={classes.more4} />
+                                    </div>
+                                    <div className="w-1/3 flex flex-col text-left pl-3 ">
+                                        <p>Abu Hurairah</p>
+                                        <p className="text-slate-300 text-sm"><i>and a 100 more liked this</i></p>
+                                    </div>
+                                    <div className="w-5/12 flex flex-row text-left pl-3 items-center justify-evenly">
+                                        <p className="pr-6 "><span><FavoriteBorderIcon /></span><i> 2K</i></p>
+                                        <div className="flex flex-row pr-6 items-center"><span><img src={fillshare} alt="fillshare" /></span><p className="pl-2"><i> 24K</i></p></div>
+                                        <p className=""><span><ChatBubbleIcon /></span><i> 200</i></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-span-3">
+                            <div className={`mt-3 mx-auto ${classes.visitedmasjid}`}>
+                                <p className="lg:text-xl py-3">My Primary Masjid</p>
+                                <div>
+                                    <p className="border-t border-slate-400 my-2"></p>
+                                    <div className="h-28 grid grid-cols-7 gap-1 ">
+                                        <div class="col-span-2">
+                                            <div className="h-28 w-20 bg-slate-500 rounded-xl flex flex-col justify-center items-center ml-2 relative">
+                                                <img src={masjidicon1} alt="masjid" className={` ${classes.masjidicon1}`} />
+                                                <p className="text-sm">Masjid Hira</p>
+                                            </div>
+                                            <img src={veracc} alt="verify" className={` ${classes.verify}`} />
+                                        </div>
+                                        <div class="col-span-2 flex ml-4 mt-3">
+                                            <div className="flex flex-col justify-start">
+                                                <p className="text-left text-sm">Name</p>
+                                                <p className="text-left text-sm">Location</p>
+                                                <p className="text-left text-sm">Imam</p>
+                                                <p className="text-left text-sm">Mutawalli</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-span-3">
+                                            <div className="flex flex-col mt-3">
+                                                <p className="text-left text-sm">Masjid Hira</p>
+                                                <p className="text-left text-sm">Aishbagh Lucknow</p>
+                                                <p className="text-left text-sm flex flex-row items-center">: Hasan <span className="pl-2"><img src={call} alt="call" /></span>  <span className="pl-2"><img src={message} alt="message" /></span></p>
+                                                <p className="text-left text-sm flex flex-row items-center">: Abdulah <span className="pl-2"><img src={call} alt="call" /></span>  <span className="pl-2"><img src={message} alt="message" /></span></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p className="border-t border-slate-400 my-2"></p>
+                                </div>
+                                <div>
+                                    <p className="py-2 pl-3 text-left">Masjid You have Visited</p>
+                                    <div className="masjjids grid grid-cols-6 ">
+                                        <div class="col-span-2">
+                                            <div className="h-28 w-20  rounded-xl flex flex-col justify-center items-center ml-2 relative">
+                                                <img src={masjidicon1} alt="masjid" className={` ${classes.masjidicon1}`} />
+                                                <p className="" style={{ fontSize: "8px" }}><i>Last Visited</i></p>
+                                                <p className="" style={{ fontSize: "8px" }}><i>on 12th jan</i></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-span-2">
+                                            <div className="h-28 w-20  rounded-xl flex flex-col justify-center items-center ml-2 relative">
+                                                <img src={masjidicon1} alt="masjid" className={` ${classes.masjidicon1}`} />
+                                                <p className="" style={{ fontSize: "8px" }}><i>Last Visited</i></p>
+                                                <p className="" style={{ fontSize: "8px" }}><i>on 2nd may</i></p>
+                                            </div>
+                                            <img src={veracc} alt="verify" className={` ${classes.verify1}`} />
+                                        </div>
+                                        <div class="col-span-2">
+                                            <div className="h-28 w-20  rounded-xl flex flex-col justify-center items-center ml-2 relative">
+                                                <img src={masjidicon1} alt="masjid" className={` ${classes.masjidicon1}`} />
+                                                <p className="" style={{ fontSize: "8px" }}><i>Last Visited</i></p>
+                                                <p className="" style={{ fontSize: "8px" }}><i>on 2nd may</i></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="masjjids grid grid-cols-6 ">
+                                        <div class="col-span-2">
+                                            <div className="h-20 w-20  rounded-xl flex flex-col justify-center items-center ml-2 relative">
+                                                <img src={masjidicon1} alt="masjid" className={` ${classes.masjidicon1}`} />
+                                                <p className="" style={{ fontSize: "8px" }}><i>Last Visited</i></p>
+                                                <p className="" style={{ fontSize: "8px" }}><i>on 12th jan</i></p>
+                                            </div>
+                                            <img src={veracc} alt="verify" className={` ${classes.verify1}`} />
+                                        </div>
+                                        <div class="col-span-2">
+                                            <div className="h-20 w-20  rounded-xl flex flex-col justify-center items-center ml-2 relative">
+                                                <img src={masjidicon1} alt="masjid" className={` ${classes.masjidicon1}`} />
+                                                <p className="" style={{ fontSize: "8px" }}><i>Last Visited</i></p>
+                                                <p className="" style={{ fontSize: "8px" }}><i>on 2nd may</i></p>
+                                            </div>
+                                            <img src={veracc} alt="verify" className={` ${classes.verify1}`} />
+                                        </div>
+                                        <div class="col-span-2">
+                                            <div className="h-20 w-20  rounded-xl flex flex-col justify-center items-center ml-2 relative">
+                                                <img src={masjidicon1} alt="masjid" className={` ${classes.masjidicon1}`} />
+                                                <p className="" style={{ fontSize: "8px" }}><i>Last Visited</i></p>
+                                                <p className="" style={{ fontSize: "8px" }}><i>on 2nd may</i></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={`mt-3 mx-auto ${classes.local}`}>
+                                <div className="grid grid-cols-6">
+                                    <div className="col-span-4 ">
+                                        <p className="lg:text-xl py-3 text-right">Local Jobs</p>
+                                    </div>
+                                    <div className="col-span-2 py-3">
+                                        <MoreVertIcon />
+                                    </div>
+                                </div>
+                                <div>
+                                    <p className="border-t border-slate-400 my-2"></p>
+                                    <div className="grid grid-cols-6 mx-auto w-75">
+                                        <div className="h-14 col-span-2 mx-auto">
+                                            <img src={more4} alt="more4" />
+                                        </div>
+                                        <div className="h-14 col-span-3 text-left mb-3">
+                                            <p className="text-lg text-bolder">Anwar Ibrahim</p>
+                                            <p className="" style={{ fontSize: "11px" }}><i>Needs a plumber on 26th Jan</i></p>
+                                            <p className="" style={{ fontSize: "10px" }}><span  ><AccessTimeIcon style={{ fontSize: "14px" }} /></span> 3 days work <span><FmdGoodIcon style={{ fontSize: "14px" }} /></span>15km away</p>
+                                        </div>
+                                        <div className="h-14 col-span-1 mx-auto">
+                                            <VisibilityOffIcon />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p className="border-t border-slate-400 my-2"></p>
+                                    <div className="grid grid-cols-6 mx-auto w-75">
+                                        <div className="h-14 col-span-2 mx-auto">
+                                            <img src={more4} alt="more4" />
+                                        </div>
+                                        <div className="h-14 col-span-3 text-left mb-3">
+                                            <p className="text-lg text-bolder">Anwar Ibrahim</p>
+                                            <p className="" style={{ fontSize: "11px" }}><i>Needs a plumber on 26th Jan</i></p>
+                                            <p className="" style={{ fontSize: "10px" }}><span ><AccessTimeIcon style={{ fontSize: "14px" }} /></span> 3 days work <span><FmdGoodIcon style={{ fontSize: "14px" }} /></span>15km away</p>
+                                        </div>
+                                        <div className="h-14 col-span-1 mx-auto">
+                                            <VisibilityIcon />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p className="border-t border-slate-400 my-2"></p>
+                                    <div className="grid grid-cols-6 mx-auto w-75">
+                                        <div className="h-14 col-span-2 mx-auto">
+                                            <img src={more4} alt="more4" />
+                                        </div>
+                                        <div className="h-14 col-span-3 text-left">
+                                            <p className="text-lg text-bolder">Anwar Ibrahim</p>
+                                            <p className="" style={{ fontSize: "11px" }}><i>Needs a plumber on 26th Jan</i></p>
+                                            <p className="" style={{ fontSize: "10px" }}><span ><AccessTimeIcon style={{ fontSize: "14px" }} /></span> 3 days work <span><FmdGoodIcon style={{ fontSize: "14px" }} /></span>15km away</p>
+                                        </div>
+                                        <div className="h-14 col-span-1 mx-auto">
+                                            <VisibilityIcon />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={`mt-3 mx-auto ${classes.help}`}>
+                                <div className="grid grid-cols-6">
+                                    <div className="col-span-4 ">
+                                        <p className="lg:text-xl py-3 text-right">Help a Needy!</p>
+                                    </div>
+                                    <div className="col-span-2 py-3">
+                                        <MoreVertIcon />
+                                    </div>
+                                </div>
+                                <div>
+                                    <p className="border-t border-slate-400 my-2"></p>
+                                    <div className="grid grid-cols-6 mx-auto w-75">
+                                        <div className="h-14 col-span-2 mx-auto">
+                                            <img src={gulamicon} alt="gulamicon" />
+                                        </div>
+                                        <div className="h-14 col-span-3 text-left mb-3 flex flex-col">
+                                            <p className="text-lg text-bolder">Ghulam Ali</p>
+                                            <div className="grid grid-cols-3">
+                                                <div className="flex flex-col items-center">
+                                                    <img src={validation} alt="validation" />
+                                                    <p style={{ fontSize: "12px" }}>Validate</p>
+                                                </div>
+                                                <div className="flex flex-col items-center">
+                                                    <img src={donate} alt="donate" />
+                                                    <p style={{ fontSize: "12px" }}>Donate</p>
+                                                </div>
+                                                <div className="flex flex-col items-center">
+                                                    <img src={spread} alt="spread" />
+                                                    <p style={{ fontSize: "12px" }}>Spread</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div>
+                                    <p className="border-t border-slate-400 my-2"></p>
+                                    <div className="grid grid-cols-6 mx-auto w-75">
+                                        <div className="h-14 col-span-2 mx-auto">
+                                            <img src={gulamicon} alt="gulamicon" />
+                                            <img src={veracc} alt="verify" className={` ${classes.verify2}`} />
+                                        </div>
+                                        <div className="h-14 col-span-3 text-left mb-3 flex flex-col">
+                                            <p className="text-lg text-bolder">Ghulam Ali</p>
+                                            <div className="grid grid-cols-3">
+                                                <div className="flex flex-col items-center">
+                                                    <img src={validation} alt="validation" />
+                                                    <p style={{ fontSize: "12px" }}>Validate</p>
+                                                </div>
+                                                <div className="flex flex-col items-center">
+                                                    <img src={donate} alt="donate" />
+                                                    <p style={{ fontSize: "12px" }}>Donate</p>
+                                                </div>
+                                                <div className="flex flex-col items-center">
+                                                    <img src={spread} alt="spread" />
+                                                    <p style={{ fontSize: "12px" }}>Spread</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p className="border-t border-slate-400 my-2"></p>
+                                    <div className="grid grid-cols-6 mx-auto w-75">
+                                        <div className="h-14 col-span-2 mx-auto">
+                                            <img src={gulamicon} alt="gulamicon" />
+                                        </div>
+                                        <div className="h-14 col-span-3 text-left mb-3 flex flex-col">
+                                            <p className="text-lg text-bolder">Ghulam Ali</p>
+                                            <div className="grid grid-cols-3">
+                                                <div className="flex flex-col items-center">
+                                                    <img src={validation} alt="validation" />
+                                                    <p style={{ fontSize: "12px" }}>Validate</p>
+                                                </div>
+                                                <div className="flex flex-col items-center">
+                                                    <img src={donate} alt="donate" />
+                                                    <p style={{ fontSize: "12px" }}>Donate</p>
+                                                </div>
+                                                <div className="flex flex-col items-center">
+                                                    <img src={spread} alt="spread" />
+                                                    <p style={{ fontSize: "12px" }}>Spread</p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={`mt-3 mx-auto ${classes.purchases}`}>
+                                <div className="grid grid-cols-8">
+                                    <div className="col-span-2 py-3 flex justify-center">
+                                        <img src={cart} alt="cart" />
+                                    </div>
+                                    <div className="col-span-4 ">
+                                        <p className="lg:text-xl py-3 text-right">Your Purchases</p>
+                                    </div>
+                                    <div className="col-span-2 py-3">
+                                        <MoreVertIcon />
+                                    </div>
+                                </div>
+                                <div>
+                                    <p className="border-t border-slate-400 my-2"></p>
+                                    <div className="grid grid-cols-6 mx-auto w-75">
+                                        <div className="h-16 col-span-2 mx-auto">
+                                            <img src={meat} alt="meat" />
+                                        </div>
+                                        <div className="h-16 col-span-3 text-left mb-3">
+                                            <p className="text-lg text-bolder">Meat</p>
+                                            <p className="text-slate-200" style={{ fontSize: "10px" }}>from</p>
+                                            <p className="text-sm">Alladeen Meat Shop</p>
+                                            <p className="text-slate-200" style={{ fontSize: "12px" }}><i>2 days ago</i></p>
+                                        </div>
+                                        <div className="h-16 col-span-1 mx-auto flex flex-col justify-center">
+                                            <img src={star} alt="start" />
+                                            <p className="text-slate-200" style={{ fontSize: "12px" }}>3/5</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p className="border-t border-slate-400 my-2"></p>
+                                    <div className="grid grid-cols-6 mx-auto w-75">
+                                        <div className="h-14 col-span-2 mx-auto">
+                                            <img src={tshirt} alt="tshirt" />
+                                        </div>
+                                        <div className="h-16 col-span-3 text-left mb-3">
+                                            <p className="text-lg text-bolder">T-Shirt</p>
+                                            <p className="text-slate-200" style={{ fontSize: "10px" }}>from</p>
+                                            <p className="text-sm">V-Mart</p>
+                                            <p className="text-slate-200" style={{ fontSize: "12px" }}><i>2 days ago</i></p>
+                                        </div>
+                                        <div className="h-16 col-span-1 mx-auto flex flex-col justify-center">
+                                            <img src={star} alt="start" />
+                                            <p className="text-slate-200" style={{ fontSize: "12px" }}>3/5</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p className="border-t border-slate-400 my-2"></p>
+                                    <div className="grid grid-cols-6 mx-auto w-75">
+                                        <div className="h-14 col-span-2 mx-auto">
+                                            <img src={ring} alt="ring" />
+                                        </div>
+                                        <div className="h-16 col-span-3 text-left mb-3">
+                                            <p className="text-lg text-bolder">Ring</p>
+                                            <p className="text-slate-200" style={{ fontSize: "10px" }}>from</p>
+                                            <p className="text-sm">JK Jewellers</p>
+                                            <p className="text-slate-200" style={{ fontSize: "12px" }}><i>2 days ago</i></p>
+                                        </div>
+                                        <div className="h-16 col-span-1 mx-auto flex flex-col justify-center">
+                                            <img src={star} alt="start" />
+                                            <p className="text-slate-200" style={{ fontSize: "12px" }}>3/5</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className={`mt-3 mx-auto ${classes.advert}`}>
+                                <div className="grid grid-cols-8">
+                                    <div className="col-span-2 py-3 flex justify-center">
+                                        <img src={advert} alt="advert" />
+                                    </div>
+                                    <div className="col-span-4 ">
+                                        <p className="lg:text-xl py-3 text-right">Your Purchases</p>
+                                    </div>
+                                    <div className="col-span-2 py-3">
+                                        <MoreVertIcon />
+                                    </div>
+                                </div>
+                                <div>
+                                    <p className="border-t border-slate-400 my-2"></p>
+                                    <div className="grid grid-cols-8 mx-auto">
+                                        <div className=" col-span-3 mx-auto items-center">
+                                            <p className="text-2xl text-red-400" style={{fontFamily: 'Waiting for the Sunrise'}}>Flash Sale</p>
+                                            <p className="text-2xl" style={{fontFamily: 'Playfair Display'}}>THE HEKIM</p>
+                                            <p className="pt-6" style={{ fontSize: "12px" }}>Get 20</p>
+                                            <p className="" style={{ fontSize: "12px" }}>Discount with</p>
+                                            <p className="" style={{ fontSize: "12px" }}>Coupon Code.</p>
+                                        </div>
+                                        <div className=" col-span-5 flex justify-center">
+                                            <img src={advertimg} alt="advertimg" />
+                                        </div>
 
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-span-3 bg-pink-100">10</div>
                     </div>
                 </div>
             </div>
