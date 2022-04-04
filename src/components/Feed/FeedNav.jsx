@@ -14,11 +14,16 @@ import AppsIcon from '@mui/icons-material/Apps';
 
 const useStyles = makeStyles((theme) => ({
     fullnavbar: {
-        backgroundColor: "#363B4D"
+        backgroundColor: "#363B4D",
+        fontFamily: "'Bungee Inline', cursive",
     },
     navbar: {
         width: "85%",
         margin: "0 auto",
+        [theme.breakpoints.between(320, 768)]: {
+            width: "90%",
+            margin: "0 auto",
+        },
     },
     icons: {
         color: "white",
@@ -27,7 +32,17 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: "row",
         justifyContent: "space-evenly",
         width: "33%",
+        [theme.breakpoints.between(320, 768)]: {
+            width: "50%",
+        },
     },
+    icon: {
+        
+        [theme.breakpoints.between(320, 768)]: {
+            fontSize: "16px !important"
+        },
+    },
+
     threeicons: {
         marginLeft: "auto",
         alignItems: "center",
@@ -35,6 +50,9 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: "row",
         justifyContent: "space-evenly",
         width: "20%",
+        [theme.breakpoints.between(320, 768)]: {
+            width: "40%",
+        },
     },
     profileicon: {
         border: "1px solid #46D490",
@@ -51,8 +69,12 @@ const useStyles = makeStyles((theme) => ({
             height:"8px",
             borderRadius:'50px',
             position:'absolute',
-            top:0,
+            top:"4%",
             right:'2%',
+            [theme.breakpoints.between(320, 768)]: {
+                width:"5px",
+                height:"5px",
+              },
             [theme.breakpoints.between(1280, 2562)]: {
                 right:'31%',
               },
@@ -88,15 +110,15 @@ const FeedNav = () => {
             <div className={`w-full h-16 flex flex-row  ${classes.navbar}`}>
                 <div className={`  ${classes.navlogo}`}>
                     <a href="/" >
-                        <img src={Logo} alt="logo" className={`h-13 w-12   ${classes.logo}`} />
+                        <img src={Logo} alt="logo" className={`lg:w-12 w-8 lg:mt-0 mt-3  ${classes.logo}`} />
                     </a>
                 </div>
                 <div className={`ml-4 items-center ${classes.icons}`}>
                     <div>
-                        <FavoriteBorderIcon className={`xl:mx-6 ${classes.icon}`} />
+                        <FavoriteBorderIcon className={`xl:mx-6  ${classes.icon}`} />
                     </div>
                     <div className={classes.notification}>
-                        <NotificationsNoneIcon className={`xl:mx-6 ${classes.noticon}`} />
+                        <NotificationsNoneIcon className={`xl:mx-6 ${classes.icon}`} />
                     </div>
                     
                     <div>
@@ -112,12 +134,12 @@ const FeedNav = () => {
                 <div className={` flex flex-row items-center ${classes.threeicons}`}>
                     <div>
                     <a href="/" >
-                        <img src={masjidicon} alt="masjid" className={`h-6 w-6 xl:mx-6  ${classes.masjidicon}`} />
+                        <img src={masjidicon} alt="masjid" className={`h-4 w-4md:h-6 md:w-6 xl:mx-6  ${classes.masjidicon}`} />
                     </a>
                     </div>
                     <div>
                     <a href="/" >
-                        <img src={shopicon} alt="shop" className={`h-5 w-5 xl:mx-6  ${classes.shopicon}`} />
+                        <img src={shopicon} alt="shop" className={`h-4 w-4 md:h-5 md:w-5 xl:mx-6  ${classes.shopicon}`} />
                     </a>
                     </div>
                     <div className={classes.status}>

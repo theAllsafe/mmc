@@ -16,7 +16,7 @@ function App() {
   }, [store.getState().auth.isAuthenticated]);
   return (
     <Provider store={store}>
-      <div className="App">
+      <div className="App" >
         <Router basename= {'/mmc'}>
           <BaseRoute />
         </Router>

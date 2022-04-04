@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
       paddingLeft: "12%",
     },
     [theme.breakpoints.down(376)]: {
-      paddingLeft: "0%",
+      paddingLeft: "4%",
     },
     [theme.breakpoints.between(768, 1081)]: {
       paddingLeft: "14%",
@@ -361,7 +361,7 @@ const WaqfLogin = () => {
                   required
                 />
               </div>
-              <p className=" text-sm font-bold pl-16 lg:pl-64 pt-1">
+              <p className=" text-sm font-bold pl-40 md:pl-60 lg:pl-44 xl:pl-72 pt-1">
                 <i>Forgot Password?</i>
               </p>
             </>
@@ -376,7 +376,7 @@ const WaqfLogin = () => {
             </Link>
             <Link to="/">
               <p
-                className="h-15 w-36 px-9 mb-2 py-2.5 ml-4 md:ml-60 lg:ml-30 lg:ml-60 bg-green-400 rounded-md text-sm text-white font-bold"
+                className="h-15 w-36 px-9 mb-2 py-2.5 ml-4 md:ml-60 lg:ml-16 xl:ml-72 bg-green-400 rounded-md text-sm text-white font-bold"
                 onClick={handleLogin}
               >
                 Login <ArrowForwardIcon />{" "}
