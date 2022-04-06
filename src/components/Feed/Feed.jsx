@@ -68,7 +68,7 @@ const useStyles = makeStyles((theme) => ({
         height: "600px",
         backgroundRepeat: "no-repeat",
         backgroundSize: 'cover',
-        color: "white",     
+        color: "white",
         [theme.breakpoints.between(320, 1024)]: {
             width: "95%",
             margin: "auto",
@@ -364,7 +364,7 @@ const useStyles = makeStyles((theme) => ({
     },
     loctxt: {
         [theme.breakpoints.between(1024, 1280)]: {
-           fontSize: "11px",
+            fontSize: "11px",
         },
     },
     verify: {
@@ -486,37 +486,42 @@ const Feed = () => {
     const [jobColor, setJobColor] = useState("#FFFFFF");
     const [reqColor, setReqColor] = useState("#545A70");
     const [advColor, setAdvColor] = useState("#545A70");
-    const changeJobColor = () => {
-        jobColor === "#FFFFFF"
-        ? setJobColor("#5C5C5C")
-        : setJobColor("#5C5C5C");
-    }
-    const changeReqColor = () => {
-        reqColor === "#FFFFFF"
-        ? setReqColor("#5C5C5C")
-        : setReqColor("#5C5C5C");
-    }
-    const changeAdvColor = () => {
-        advColor === "#FFFFFF"
-        ? setAdvColor("#5C5C5C")
-        : setAdvColor("#5C5C5C");
-    }
+    const [content, setContent] = useState('job')
+
+    const HandleJob = () => {
+        setAdvColor("#545A70");
+        setReqColor("#545A70");
+        setJobColor("#FFFFFF");
+        setContent('job')
+    };
+    const HandleReq = () => {
+        setAdvColor("#545A70");
+        setReqColor("#FFFFFF");
+        setJobColor("#545A70");
+        setContent('req')
+    };
+    const HandleAdv = () => {
+        setAdvColor("#FFFFFF");
+        setReqColor("#545A70");
+        setJobColor("#545A70");
+        setContent('adv')
+    };
     return (
         <div>
             <GoogleFontLoader
                 fonts={[
                     {
                         font: 'Raleway',
-                        weights: [400,500,600,700,800,900,'400i','500i','600i','700i','800i','900i'],
+                        weights: [400, 500, 600, 700, 800, 900, '400i', '500i', '600i', '700i', '800i', '900i'],
                     },
                     {
                         font: "'Waiting for the Sunrise', cursive",
-                        weights: [400,100],
-                    }, 
+                        weights: [400, 100],
+                    },
                     {
                         font: "'Playfair Display', serif",
-                        weights: [400,500,600,700,800,900,'400i','500i','600i','700i','800i','900i'],
-                    },                     
+                        weights: [400, 500, 600, 700, 800, 900, '400i', '500i', '600i', '700i', '800i', '900i'],
+                    },
                 ]}
                 subsets={['cyrillic-ext', 'greek']}
             />
@@ -630,7 +635,7 @@ const Feed = () => {
                                         </div>
                                         <div className="h-14 col-span-3 text-left">
                                             <p style={{ fontSize: "15px", fontWeight: "600" }}>Zain Architecture</p>
-                                            <p style={{ fontSize: "11px"}} >Posted job in Plumbers</p>
+                                            <p style={{ fontSize: "11px" }} >Posted job in Plumbers</p>
                                             <p className="text-xs"><i>3 days ago</i></p>
                                         </div>
                                         <div className="h-14 col-span-1 mx-auto">
@@ -646,7 +651,7 @@ const Feed = () => {
                                         </div>
                                         <div className="h-14 col-span-3 text-left">
                                             <p style={{ fontSize: "15px", fontWeight: "600" }}>Pumps & Pipes</p>
-                                            <p style={{ fontSize: "11px"}}>Posted job in Plumbers</p>
+                                            <p style={{ fontSize: "11px" }}>Posted job in Plumbers</p>
                                             <p className="text-xs"><i>10 days ago</i></p>
                                         </div>
                                         <div className="h-14 col-span-1 mx-auto">
@@ -662,7 +667,7 @@ const Feed = () => {
                                         </div>
                                         <div className="h-14 col-span-3 text-left">
                                             <p style={{ fontSize: "14px", fontWeight: "600" }}>Kissan Plumbings</p>
-                                            <p style={{ fontSize: "11px"}}>Posted job in Plumbers</p>
+                                            <p style={{ fontSize: "11px" }}>Posted job in Plumbers</p>
                                             <p className="text-xs"><i>3 hour ago</i></p>
                                         </div>
                                         <div className="h-14 col-span-1 mx-auto">
@@ -678,7 +683,7 @@ const Feed = () => {
                                         </div>
                                         <div className="h-14 col-span-3 text-left">
                                             <p style={{ fontSize: "15px", fontWeight: "600" }}>Areeb Fisheries</p>
-                                            <p style={{ fontSize: "11px"}}>Posted job in Plumbers</p>
+                                            <p style={{ fontSize: "11px" }}>Posted job in Plumbers</p>
                                             <p className="text-xs"><i>3 days ago</i></p>
                                         </div>
                                         <div className="h-14 col-span-1 mx-auto">
@@ -694,7 +699,7 @@ const Feed = () => {
                                         </div>
                                         <div className="h-14 col-span-3 text-left">
                                             <p style={{ fontSize: "15px", fontWeight: "600" }}>Ahsan Motors</p>
-                                            <p style={{ fontSize: "11px"}}>Posted job in Plumbers</p>
+                                            <p style={{ fontSize: "11px" }}>Posted job in Plumbers</p>
                                             <p className="text-xs"><i>3 days ago</i></p>
                                         </div>
                                         <div className="h-14 col-span-1 mx-auto">
@@ -718,21 +723,26 @@ const Feed = () => {
                                 <div>
                                     <p className="border-t border-slate-400 my-2"></p>
                                     <div className="grid grid-cols-3 mx-auto w-75">
-                                        <div className={`border-r-2 border-slate-400 h-14 flex justify-center flex-col items-center ${classes.vborder}`} onClick={changeJobColor}>
+                                        <div className={`border-r-2 border-slate-400 h-14 flex justify-center flex-col items-center ${classes.vborder}`} onClick={HandleJob}>
                                             <img src={Job} alt="jobicon" />
                                             <p className="text-xs" style={{ color: jobColor }}>JOB</p>
                                         </div>
-                                        <div className={`border-r-2 border-slate-400 h-14 flex justify-center flex-col items-center ${classes.vborder}`} onClick={changeReqColor}>
+                                        <div className={`border-r-2 border-slate-400 h-14 flex justify-center flex-col items-center ${classes.vborder}`} onClick={HandleReq}>
                                             <img src={Requirement} alt="Requirementicon" />
                                             <p className="text-xs" style={{ fontSize: "11px", color: reqColor }}>REQUIREMENT</p>
                                         </div>
-                                        <div className="h-14  mx-auto flex flex-col items-center" onClick={changeAdvColor}>
+                                        <div className="h-14  mx-auto flex flex-col items-center" onClick={HandleAdv}>
                                             <img src={Adv} alt="Advicon" />
-                                            <p className="text-xs"  style={{ color: advColor }}>ADVERT</p>
+                                            <p className="text-xs" style={{ color: advColor }}>ADVERT</p>
+                                        </div>
+                                        <div>
+                                            <h1>
+                                                {content}
+                                            </h1>
                                         </div>
                                     </div>
                                 </div>
-                                <div>
+                                {/* <div>
                                     <p className="border-t border-slate-400 my-2"></p>
                                     <div className="grid grid-cols-3 mx-auto w-75">
                                         <div className="h-14 mx-auto">
@@ -767,7 +777,7 @@ const Feed = () => {
                                             <img src={filesearch} alt="Pipingicon" className="pt-3 pl-3" />
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                         <div class="lg:col-span-6">

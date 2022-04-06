@@ -2,6 +2,7 @@ import React from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import Logo from './res/logoimg.svg';
 import masjidicon from './res/masjidicon.svg';
+import { Link } from "react-router-dom";
 import shopicon from './res/shopicon.svg';
 import profileicon from './res/profile.svg';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
@@ -37,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     icon: {
-        
+
         [theme.breakpoints.between(320, 768)]: {
             fontSize: "16px !important"
         },
@@ -56,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
     },
     profileicon: {
         border: "1px solid #46D490",
-        borderRadius:'50px',
+        borderRadius: '50px',
     },
     notification: {
         position: "relative",
@@ -64,40 +65,40 @@ const useStyles = makeStyles((theme) => ({
             content: '" "',
             display: 'block',
             height: 60,
-            backgroundColor:"red",
-            width:"8px",
-            height:"8px",
-            borderRadius:'50px',
-            position:'absolute',
-            top:"4%",
-            right:'2%',
+            backgroundColor: "red",
+            width: "8px",
+            height: "8px",
+            borderRadius: '50px',
+            position: 'absolute',
+            top: "4%",
+            right: '2%',
             [theme.breakpoints.between(320, 768)]: {
-                width:"5px",
-                height:"5px",
-              },
+                width: "5px",
+                height: "5px",
+            },
             [theme.breakpoints.between(1280, 2562)]: {
-                right:'31%',
-              },
-          },          
+                right: '31%',
+            },
+        },
     },
-status: {
+    status: {
         position: "relative",
         '&::after': {
             content: '" "',
             display: 'block',
             height: 60,
-            backgroundColor:"#46D490",
-            width:"12px",
-            height:"12px",
-            borderRadius:'50px',
-            position:'absolute',
-            top:0,
-            right:'2%',
+            backgroundColor: "#46D490",
+            width: "12px",
+            height: "12px",
+            borderRadius: '50px',
+            position: 'absolute',
+            top: 0,
+            right: '2%',
             [theme.breakpoints.between(1280, 2562)]: {
-                right:'31%',
-              },
-          },       
-},
+                right: '31%',
+            },
+        },
+    },
 }));
 
 
@@ -120,7 +121,7 @@ const FeedNav = () => {
                     <div className={classes.notification}>
                         <NotificationsNoneIcon className={`xl:mx-6 ${classes.icon}`} />
                     </div>
-                    
+
                     <div>
                         <ChatBubbleOutlineIcon className={`xl:mx-6 ${classes.icon}`} />
                     </div>
@@ -133,19 +134,19 @@ const FeedNav = () => {
                 </div>
                 <div className={` flex flex-row items-center ${classes.threeicons}`}>
                     <div>
-                    <a href="/" >
-                        <img src={masjidicon} alt="masjid" className={`h-4 w-4md:h-6 md:w-6 xl:mx-6  ${classes.masjidicon}`} />
-                    </a>
+                        <a href="/" >
+                            <img src={masjidicon} alt="masjid" className={`h-4 w-4md:h-6 md:w-6 xl:mx-6  ${classes.masjidicon}`} />
+                        </a>
                     </div>
                     <div>
-                    <a href="/" >
-                        <img src={shopicon} alt="shop" className={`h-4 w-4 md:h-5 md:w-5 xl:mx-6  ${classes.shopicon}`} />
-                    </a>
+                        <a href="/" >
+                            <img src={shopicon} alt="shop" className={`h-4 w-4 md:h-5 md:w-5 xl:mx-6  ${classes.shopicon}`} />
+                        </a>
                     </div>
                     <div className={classes.status}>
-                    <a href="/" >
-                        <img src={profileicon} alt="profile" className={`h-10 w-10 xl:mx-6  ${classes.profileicon}`} />
-                    </a>
+                        <Link to="/userprofilepage">
+                            <img src={profileicon} alt="profile" className={`h-10 w-10 xl:mx-6  ${classes.profileicon}`} />
+                        </Link>
                     </div>
                 </div>
             </div>

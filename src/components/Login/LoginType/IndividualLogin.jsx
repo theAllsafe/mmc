@@ -344,7 +344,7 @@ const IndividualLogin = () => {
                 />
                 {otpVerify === "verify" ? (
                   <button
-                    className="h-8 w-16 z-10  right-20 relative bg-green-400 rounded-xl text-sm text-white "
+                    className="h-8 w-16 z-10  right-20 relative bg-green-400 rounded-xl text-sm text-white"
                     onClick={() => otpVerifyHandler("verify")}
                     type=""
                   >
