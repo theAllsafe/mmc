@@ -26,6 +26,7 @@ import UserProfile from "./components/UserProfile/UserProfile";
 import Help from "./components/Help/Help";
 import Preference from "./components/Preference/Preference";
 import PrivacySetting from "./components/PrivacySetting/PrivacySetting";
+import Notifications from "./components/Notifications/Notifications";
 
 const BaseRoute = () => {
   return (
@@ -62,6 +63,7 @@ const BaseRoute = () => {
       <Route exact path="/Help" component={Help} />
       <Route exact path="/Preferences" component={Preference} />
       <Route exact path="/privacy" component={PrivacySetting} />
+      <Route exact path="/Notifications" component={Notifications} />
     </Switch>
   );
 };

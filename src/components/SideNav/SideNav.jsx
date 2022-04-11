@@ -54,7 +54,7 @@ export default function Sidenav() {
                     <div className='flex flex-row gap-12 p-2'><SettingsInputComponentIcon className='iconallside' /> <h1 className='text-white text-xl tracking-wider'>Preferences</h1></div>
                 </NavLink>
                 <hr />
-                <NavLink exact to='/' activeClassName='active-navLink' className='demo'>
+                <NavLink exact to='/Notifications' activeClassName='active-navLink' className='demo'>
                     <div className='flex flex-row gap-12 p-2'><NotificationsIcon className='iconallside' /> <h1 className='text-white text-xl tracking-wider'>Notifications</h1></div>
                 </NavLink>
                 <NavLink exact to='/Help' activeClassName='active-navLink' className='demo'>
