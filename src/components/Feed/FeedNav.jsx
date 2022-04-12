@@ -55,10 +55,6 @@ const useStyles = makeStyles((theme) => ({
             width: "40%",
         },
     },
-    profileicon: {
-        border: "1px solid #46D490",
-        borderRadius: '50px',
-    },
     notification: {
         position: "relative",
         '&::after': {
@@ -145,7 +141,7 @@ const FeedNav = () => {
                     </div>
                     <div className={classes.status}>
                         <Link to="/userprofilepage">
-                            <img src={profileicon} alt="profile" className={`h-10 w-10 xl:mx-6  ${classes.profileicon}`} />
+                            <img src={profileicon} alt="profile" className={`h-10 w-10 xl:mx-6 border border-green-400 rounded-full ${classes.profileicon}`} />
                         </Link>
                     </div>
                 </div>

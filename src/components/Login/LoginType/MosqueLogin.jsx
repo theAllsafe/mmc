@@ -11,6 +11,7 @@ import Navbar from "../../Navbar/Navbar";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { setIsAuth } from "../../../store/actions/Auth";
+import { Cookies } from "react-cookie";
 
 const useStyles = makeStyles((theme) => ({
   mainCon: {
@@ -46,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
 const MosqueLogin = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const cookies = new Cookies();
   const history = useHistory();
   const [pbtnColor, setPBtnColor] = useState("#46D490");
   const [obtnColor, setOBtnColor] = useState("#5C5C5C");
@@ -178,8 +180,9 @@ const MosqueLogin = () => {
         })
         .then((res) => {
           console.log("loginwithphone", res);
-          localStorage.setItem("access_token", res.data.token);
+          cookies.set("access_token", res.data.data.token);
           dispatch(setIsAuth(true));
+          history.push("/feed");
         })
         .catch((error) => {
           console.log(error);
@@ -193,8 +196,9 @@ const MosqueLogin = () => {
         })
         .then((res) => {
           console.log("loginWithemail", res);
-          localStorage.setItem("access_token", res.data.token);
+          cookies.set("access_token", res.data.data.token);
           dispatch(setIsAuth(true));
+          history.push("/feed");
         })
         .catch((error) => {
           console.log(error);

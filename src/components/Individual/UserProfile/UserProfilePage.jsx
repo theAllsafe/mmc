@@ -4,7 +4,16 @@ import { makeStyles } from "@material-ui/core/styles";
 import profilebg from './res/profilebg.svg';
 import profilepic from './res/profilepic.svg';
 import zakat from './res/zakat.svg';
+import profileicon from './res/profile.svg';
+import more1 from './res/more1.svg';
+import more2 from './res/more2.svg';
+import more3 from './res/more3.svg';
+import more4 from './res/more4.svg';
+import friend1 from './res/friend1.svg';
+import friend2 from './res/friend2.svg';
 import earnings from './res/earnings.svg';
+import uploadedpic1 from './res/uploadedpic1.svg';
+import fillshare from './res/fillshare.svg';
 import mycoin from './res/mycoin.svg';
 import sadqa from './res/sadqa.svg';
 import photo from './res/photo.svg';
@@ -17,11 +26,14 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import ShareIcon from '@mui/icons-material/Share';
 import AddIcon from '@mui/icons-material/Add';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import star from './res/star.svg';
 
 const useStyles = makeStyles((theme) => ({
     maincont: {
         background: "#545A70",
-        height: "350vh"
     },
     profilebg: {
         margin: "0 auto",
@@ -33,21 +45,45 @@ const useStyles = makeStyles((theme) => ({
         position: "absolute",
         left: "6%",
         top: "16%",
+        [theme.breakpoints.between(700, 768)]: {
+            left: "12%",
+        },
+        [theme.breakpoints.between(768, 1280)]: {
+            left: "14%",
+        },
+        [theme.breakpoints.between(1280, 1441)]: {
+            left: "9%",
+        },
     },
     qrcode: {
         background: "#202836",
         position: "absolute",
         left: "92%",
         top: "16%",
+        [theme.breakpoints.down(768)]: {
+            left: "84%",
+        },
+        [theme.breakpoints.down(425)]: {
+            left: "85%",
+        },
+        [theme.breakpoints.down(375)]: {
+            left: "82%",
+        },
+        [theme.breakpoints.between(768, 1280)]: {
+            left: "82%",
+        },
+        [theme.breakpoints.between(1280, 1441)]: {
+            left: "87%",
+        },
     },
     Addicon: {
         position: "absolute",
-        left: "76%",
+        left: "54%",
         top: "63%",
     },
     profilepicContainer: {
         position: "absolute",
-        left: "41%",
+        left: "0%",
         top: "67%",
     },
     menuitems: {
@@ -59,7 +95,7 @@ const useStyles = makeStyles((theme) => ({
         borderRadius: "35px",
         color: "white",
         marginBottom: "15px",
-        [theme.breakpoints.between(320, 1024)]: {
+        [theme.breakpoints.down(1024)]: {
             width: "95%",
             margin: "4% auto",
         },
@@ -111,40 +147,23 @@ const useStyles = makeStyles((theme) => ({
             margin: "4% auto",
         },
     },
+    photo: {
+        borderRadius: "17%",
+    },
     feedpost1: {
         background: "#202836",
         borderRadius: "20px",
         color: "white",
-        height: "28%",
-        [theme.breakpoints.between(320, 376)]: {
+        height: "46.5%",
+        [theme.breakpoints.down( 1024)]: {
             width: "95%",
             margin: "4% auto",
-            height: "33%",
-        },
-        [theme.breakpoints.between(375, 426)]: {
-            width: "95%",
-            margin: "4% auto",
-            height: "34%",
-        },
-        [theme.breakpoints.between(426, 600)]: {
-            width: "95%",
-            margin: "4% auto",
-            height: "35%",
-        },
-        [theme.breakpoints.between(600, 768)]: {
-            width: "95%",
-            margin: "4% auto",
-            height: "37%",
-        },
-        [theme.breakpoints.between(768, 1024)]: {
-            width: "95%",
-            margin: "4% auto",
-            height: "37%",
+            height: "47%",
         },
         [theme.breakpoints.between(1024, 1280)]: {
             width: "95%",
             margin: "4% auto",
-            height: "24%",
+            height: "41%",
         },
         [theme.breakpoints.between(1536, 2561)]: {
             width: "100%",
@@ -152,7 +171,86 @@ const useStyles = makeStyles((theme) => ({
             height: "32%",
         },
     },
+    lcs: {
+        position: "relative",
+        left: "63%",
+        bottom: "4%",
+    },
+    lcsicons: {
+        [theme.breakpoints.between(320, 426)]: {
+            fontSize: "12px !important",
+        },
+        [theme.breakpoints.between(425, 768)]: {
+            fontSize: "12px !important",
+        },
+    },
+    lcsicons1: {
+        [theme.breakpoints.between(320, 426)]: {
+            width: "12px",
+            height: "auto",
+        },
+        [theme.breakpoints.between(425, 600)]: {
+            width: "12px",
+            height: "auto",
+        },
+    },
+    moreimg: {
+        [theme.breakpoints.between(320, 376)]: {
+            width: "25%"
+        },
+        [theme.breakpoints.between(375, 426)]: {
+            width: "20%"
+        },
+        [theme.breakpoints.between(426, 600)]: {
+            width: "18%"
+        },
+        [theme.breakpoints.between(600, 768)]: {
+            width: "22%"
+        },
+    },
+    more1: {
+        [theme.breakpoints.between(320, 600)]: {
+            width: "24px",
+        },
+    },
+    more2: {
+        position: "relative",
+        right: "15%",
+        [theme.breakpoints.between(320, 600)]: {
+            width: "24px",
+        },
+    },
+    more3: {
+        position: "relative",
+        right: "30%",
+        [theme.breakpoints.between(320, 600)]: {
+            width: "24px",
+        },
+    },
+    more4: {
+        position: "relative",
+        right: "46%",
+        [theme.breakpoints.between(320, 600)]: {
+            width: "24px",
+        },
+    },
+    liked: {
+        fontSize: "12px",
+        [theme.breakpoints.between(320, 426)]: {
+            fontSize: "8px",
+        },
+    },
+    friends: {
+        background: "#202836",
+        borderRadius: "30px",
+        color: "white",
+        [theme.breakpoints.between(320, 1024)]: {
+            width: "95%",
+            margin: "4% auto",
+        },
+    },
 }));
+
 const UserProfilePage = () => {
     const classes = useStyles();
     return (
@@ -187,30 +285,30 @@ const UserProfilePage = () => {
                         <div className={`h-10 w-10 flex justify-center items-center ${classes.qrcode}`}>
                             <QrCode2Icon style={{ color: "white" }} />
                         </div>
-                        <div className={`flex flex-col items-center justify-center ${classes.profilepicContainer}`}>
-                            <img src={profilepic} alt="profilepic" className={`relative ${classes.profilepic}`} />
-                            <div className={`h-6 w-6 md:h-10 md:w-10 bg-blue-300 rounded-full items-center flex justify-center absolute ${classes.Addicon}`}>
-                                <AddIcon style={{ color: "white" }} />
+                        <div className={`flex flex-col items-center justify-center w-full ${classes.profilepicContainer}`}>
+                            <img src={profilepic} alt="profilepic" className={`relative w-1/6 border-0 rounded-full ${classes.profilepic}`} />
+                            <div className={`h-6 w-6 md:h-10 md:w-10 bg-blue-400 rounded-full items-center flex justify-center absolute ${classes.Addicon}`}>
+                                <AddIcon style={{ color: "white" }} className={classes.lcsicons} />
                             </div>
-                            <p className='text-xl text-white font-bold'>Wamique Ahmad</p>
-                            <p className='text-sm text-white'>UI/UX Designer</p>
+                            <p className='text-sm lg:text-xl text-white font-bold'>Wamique Ahmad</p>
+                            <p className='text-xs lg:text-sm text-white'>UI/UX Designer</p>
                         </div>
                     </div>
                     <div className={`mt-3 flex flex-row justify-between ${classes.menuitems}`}>
                         <div className='flex flex-row '>
-                            <div className="h-12 w-44 flex justify-center items-center bg-slate-800 rounded-xl">
-                                <p className='text-white font-bold'>Timeline</p>
+                            <div className="lg:h-12 lg:w-44 flex justify-center items-center bg-slate-800 rounded-xl">
+                                <p className='text-xs lg:text-base text-white font-bold px-1.5  py-1.5'>Timeline</p>
                             </div>
-                            <div className="h-12 w-44 flex justify-center items-center bg-slate-800 rounded-xl ml-4">
-                                <p className='text-white font-bold'>About</p>
+                            <div className="lg:h-12 lg:w-44 flex justify-center items-center bg-slate-800 rounded-xl ml-1 lg:ml-4">
+                                <p className='text-xs lg:text-base text-white font-bold px-1.5  py-1.5'>About</p>
                             </div>
                         </div>
                         <div className='flex flex-row'>
-                            <div className="h-12 w-44 flex justify-center items-center bg-slate-800 rounded-xl">
-                                <p className='text-white font-bold'>Friends</p>
+                            <div className="lg:h-12 lg:w-44 flex justify-center items-center bg-slate-800 rounded-xl">
+                                <p className='text-xs lg:text-base text-white font-bold px-1.5  py-1.5'>Friends</p>
                             </div>
-                            <div className="h-12 w-44 flex justify-center items-center bg-slate-800 rounded-xl ml-4">
-                                <p className='text-white font-bold'>Photos</p>
+                            <div className="lg:h-12 lg:w-44 flex justify-center items-center bg-slate-800 rounded-xl ml-1 lg:ml-4">
+                                <p className='text-xs lg:text-base text-white font-bold px-1.5  py-1.5'>Photos</p>
                             </div>
                         </div>
 
@@ -240,23 +338,23 @@ const UserProfilePage = () => {
                                     <div className='grid grid-cols-5 gap-2 w-11/12 mx-auto'>
                                         <div className='flex flex-col justify-center items-center'>
                                             <img src={mycoin} alt="mycoin" />
-                                            <p className='text-sm'>My Coins</p>
+                                            <p className='text-xs md:text-sm'>My Coins</p>
                                         </div>
                                         <div className='flex flex-col justify-center items-center'>
                                             <img src={earnings} alt="mycoin" />
-                                            <p className='text-sm'>Earnings</p>
+                                            <p className='text-xs md:text-sm'>Earnings</p>
                                         </div>
                                         <div className='flex flex-col justify-center items-center'>
                                             <img src={sadqa} alt="mycoin" />
-                                            <p className='text-sm'>Sadqa</p>
+                                            <p className='text-xs md:text-sm'>Sadqa</p>
                                         </div>
                                         <div className='flex flex-col justify-center items-center'>
                                             <img src={zakat} alt="mycoin" />
-                                            <p className='text-sm'>Zakat</p>
+                                            <p className='text-xs md:text-sm'>Zakat</p>
                                         </div>
                                         <div className='flex flex-col justify-center items-center'>
                                             <img src={rechargewallet} alt="mycoin" />
-                                            <p className='text-sm'>Recharge Wallet</p>
+                                            <p className='text-xs md:text-sm'>Recharge Wallet</p>
                                         </div>
 
                                     </div>
@@ -335,14 +433,102 @@ const UserProfilePage = () => {
                                     </div>
                                 </div>
                                 <div>
-                                <img src={photo} alt="photo" />
-                                <img src={photo} alt="photo" />
-                                <img src={photo} alt="photo" />
+                                    <div className='flex flex-row justify-evenly items-center'>
+                                        <img src={photo} alt="photo" className={`h-20 w-20 md:h-32 md:w-32 lg:w-24 lg:h-24 xl:h-28 xl:w-28 ${classes.photo}`} />
+                                        <img src={photo} alt="photo" className={`h-20 w-20 md:h-32 md:w-32 lg:w-24 lg:h-24 xl:h-28 xl:w-28 ${classes.photo}`} />
+                                        <img src={photo} alt="photo" className={`h-20 w-20 md:h-32 md:w-32 lg:w-24 lg:h-24 xl:h-28 xl:w-28 ${classes.photo}`} />
+                                    </div>
+                                    <div className='flex flex-row justify-evenly items-center my-3'>
+                                    <img src={photo} alt="photo" className={`h-20 w-20 md:h-32 md:w-32 lg:w-24 lg:h-24 xl:h-28 xl:w-28 ${classes.photo}`} />
+                                        <img src={photo} alt="photo" className={`h-20 w-20 md:h-32 md:w-32 lg:w-24 lg:h-24 xl:h-28 xl:w-28 ${classes.photo}`} />
+                                        <img src={photo} alt="photo" className={`h-20 w-20 md:h-32 md:w-32 lg:w-24 lg:h-24 xl:h-28 xl:w-28 ${classes.photo}`} />
+                                    </div>
+                                    <div className='flex flex-row justify-evenly items-center my-3'>
+                                    <img src={photo} alt="photo" className={`h-20 w-20 md:h-32 md:w-32 lg:w-24 lg:h-24 xl:h-28 xl:w-28 ${classes.photo}`} />
+                                        <img src={photo} alt="photo" className={`h-20 w-20 md:h-32 md:w-32 lg:w-24 lg:h-24 xl:h-28 xl:w-28 ${classes.photo}`} />
+                                        <img src={photo} alt="photo" className={`h-20 w-20 md:h-32 md:w-32 lg:w-24 lg:h-24 xl:h-28 xl:w-28 ${classes.photo}`} />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div className={`my-3 mx-auto ${classes.photos}`}>
+                                    <div className="grid grid-cols-6">
+                                        <div className="col-span-1 py-3">
+                                        </div>
+                                        <div className="col-span-4">
+                                            <p className="text-xl py-3 text-left font-bold">Friends</p>
+                                        </div>
+                                        <div className="col-span-1 py-3">
+                                            <MoreVertIcon />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className={`my-3 mx-auto ${classes.friends}`}>
+                                    <div>
+                                        <div className="grid grid-cols-6 mx-auto w-75 pt-2">
+                                            <div className="h-16 col-span-2 mx-auto">
+                                                <img src={friend1} alt="friend1" />
+                                            </div>
+                                            <div className="h-16 col-span-3 text-left">
+                                                <p className="text-lg font-bold">Alishba</p>
+                                                <p className="text-sm ">4 mins ago</p>
+                                            </div>
+                                            <div className="h-16 col-span-1 mx-auto flex flex-col justify-center">
+                                                <img src={star} alt="start" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p className="border-t border-slate-400 my-2"></p>
+                                        <div className="grid grid-cols-6 mx-auto w-75">
+                                            <div className="h-14 col-span-2 mx-auto">
+                                                <img src={friend2} alt="friend2" />
+                                            </div>
+                                            <div className="h-16 col-span-3 text-left">
+                                                <p className="text-lg font-bold">Anas</p>
+                                                <p className="text-sm">1 day ago</p>
+                                            </div>
+                                            <div className="h-16 col-span-1 mx-auto flex flex-col justify-center">
+                                                <img src={star} alt="start" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p className="border-t border-slate-400 my-2"></p>
+                                        <div className="grid grid-cols-6 mx-auto w-75">
+                                            <div className="h-14 col-span-2 mx-auto">
+                                                <img src={friend2} alt="friend2" />
+                                            </div>
+                                            <div className="h-16 col-span-3 text-left">
+                                                <p className="text-lg font-bold">Mohammad</p>
+                                                <p className="text-sm">a month ago</p>
+                                            </div>
+                                            <div className="h-16 col-span-1 mx-auto flex flex-col justify-center">
+                                                <img src={star} alt="start" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p className="border-t border-slate-400 my-2"></p>
+                                        <div className="grid grid-cols-6 mx-auto w-75">
+                                            <div className="h-14 col-span-2 mx-auto">
+                                                <img src={friend2} alt="ring" />
+                                            </div>
+                                            <div className="h-16 col-span-3 text-left mb-3">
+                                                <p className="text-lg font-bold">Ahmad</p>
+                                                <p className="text-sm">Online</p>
+                                            </div>
+                                            <div className="h-16 col-span-1 mx-auto flex flex-col justify-center">
+                                                <img src={star} alt="start" />
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="lg:col-span-8 bg-blue-300">
-                        <div className={`${classes.feedpost1}`}>
+                        <div class="lg:col-span-8 ">
+                            <div className={`${classes.feedpost1}`}>
                                 <div className="profilein flex flex-row mt-3 p-4 ">
                                     <img src={profileicon} alt="profilepic" />
                                     <div className="w-4/5 flex flex-col text-left pl-3">

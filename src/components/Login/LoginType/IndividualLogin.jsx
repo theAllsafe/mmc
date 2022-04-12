@@ -11,6 +11,7 @@ import { api } from "../../../helper/instance";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { setIsAuth } from "../../../store/actions/Auth";
+import Cookies from "universal-cookie";
 
 // import { SHOW_TOAST } from "../store/constant/types";
 
@@ -47,6 +48,7 @@ const useStyles = makeStyles((theme) => ({
 
 const IndividualLogin = () => {
   const classes = useStyles();
+  const cookies = new Cookies();
 
   const dispatch = useDispatch();
   // const { isAuthenticated } = useSelector((state) => state.auth);
@@ -211,8 +213,10 @@ const IndividualLogin = () => {
         })
         .then((res) => {
           console.log("loginwithphone", res);
-          localStorage.setItem("access_token", res.data.token);
+          cookies.set("access_token", res.data.data.token);
+          console.log(cookies.set("access_token", res.data.data.token));
           dispatch(setIsAuth(true));
+          history.push("/feed");
         })
         .catch((error) => {
           console.log(error);
@@ -226,8 +230,11 @@ const IndividualLogin = () => {
         })
         .then((res) => {
           console.log("loginWithemail", res);
-          localStorage.setItem("access_token", res.data.token);
+          cookies.set("access_token", res?.data?.data?.token);
+          console.log(cookies.set("access_token", res?.data?.data?.token));
+          console.log("get", cookies.get("access_token"));
           dispatch(setIsAuth(true));
+          history.push("/feed");
         })
         .catch((error) => {
           console.log(error);

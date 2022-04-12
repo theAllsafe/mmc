@@ -26,44 +26,73 @@ import UserProfile from "./components/UserProfile/UserProfile";
 import Help from "./components/Help/Help";
 import Preference from "./components/Preference/Preference";
 import PrivacySetting from "./components/PrivacySetting/PrivacySetting";
+import { CookiesProvider, withCookies } from "react-cookie";
+import Cookies from "universal-cookie";
 
-const BaseRoute = () => {
+const ProtectedRoute = (props) => {
+  const { component: Component, ...prop } = props;
+  const cookies = new Cookies();
+  const token = cookies.get("access_token");
   return (
-    <Switch>
-      <Route exact path="/" component={LandingPage} />
-      <Route exact path="/Aboutus" component={Aboutus} />
-      <Route exact path="/Ads" component={Ads} />
-      <Route exact path="/Contactus" component={Contactus} />
-      <Route exact path="/PrivacyPolicy" component={PrivacyPolicy} />
-      <Route exact path="/Termsofuse" component={Termsofuse} />
-      <Route exact path="/SignupOption" component={Signup} />
-      <Route exact path="/Login" component={Login} />
-      <Route exact path="/BasicDetails" component={BasicDetails} />
-      <Route exact path="/OtherDetails/:id" component={OtherDetails} />
-      <Route
-        exact
-        path="/UploadProfilePage/:id"
-        component={UploadProfilePage}
-      />
-      <Route exact path="/Password/:id" component={Password} />
-      <Route exact path="/Complete" component={Complete} />
-      <Route exact path="/IndividualLogin" component={IndividualLogin} />
-      <Route exact path="/MosqueLogin" component={MosqueLogin} />
-      <Route exact path="/BusinessLogin" component={BusinessLogin} />
-      <Route exact path="/WaqfLogin" component={WaqfLogin} />
-      <Route exact path="/feed" component={Feed} />
-      <Route exact path="/userprofilepage" component={UserProfilePage} />
-
-
-
-      <Route exact path="/Sidenav" component={Sidenav} />
-      <Route exact path="/Security" component={Security} />
-      <Route exact path="/Profile" component={UserProfile} />
-      <Route exact path="/Help" component={Help} />
-      <Route exact path="/Preferences" component={Preference} />
-      <Route exact path="/privacy" component={PrivacySetting} />
-    </Switch>
+    <Route
+      {...prop}
+      render={(props) =>
+        token ? (
+          <Component {...props} />
+        ) : (
+          <IndividualLogin /> || <MosqueLogin /> || <BusinessLogin /> || (
+            <WaqfLogin />
+          )
+        )
+      }
+    />
   );
 };
 
-export default BaseRoute;
+const BaseRoute = () => {
+  return (
+    <>
+      <CookiesProvider>
+        <Switch>
+          <Route exact path="/" component={LandingPage} />
+          <Route exact path="/Aboutus" component={Aboutus} />
+          <Route exact path="/Ads" component={Ads} />
+          <Route exact path="/Contactus" component={Contactus} />
+          <Route exact path="/PrivacyPolicy" component={PrivacyPolicy} />
+          <Route exact path="/Termsofuse" component={Termsofuse} />
+          <Route exact path="/SignupOption" component={Signup} />
+          <Route exact path="/Login" component={Login} />
+          <Route exact path="/BasicDetails" component={BasicDetails} />
+          <Route exact path="/OtherDetails/:id" component={OtherDetails} />
+          <Route
+            exact
+            path="/UploadProfilePage/:id"
+            component={UploadProfilePage}
+          />
+          <Route exact path="/Password/:id" component={Password} />
+          <Route exact path="/Complete" component={Complete} />
+          <Route exact path="/IndividualLogin" component={IndividualLogin} />
+          <Route exact path="/MosqueLogin" component={MosqueLogin} />
+          <Route exact path="/BusinessLogin" component={BusinessLogin} />
+          <Route exact path="/WaqfLogin" component={WaqfLogin} />
+
+          <ProtectedRoute exact path="/feed" component={Feed} />
+          <ProtectedRoute
+            exact
+            path="/userprofilepage"
+            component={UserProfilePage}
+          />
+
+          <ProtectedRoute exact path="/Sidenav" component={Sidenav} />
+          <ProtectedRoute exact path="/Security" component={Security} />
+          <ProtectedRoute exact path="/Profile" component={UserProfile} />
+          <ProtectedRoute exact path="/Help" component={Help} />
+          <ProtectedRoute exact path="/Preferences" component={Preference} />
+          <ProtectedRoute exact path="/privacy" component={PrivacySetting} />
+        </Switch>
+      </CookiesProvider>
+    </>
+  );
+};
+
+export default withCookies(BaseRoute);

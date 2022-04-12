@@ -1,3 +1,3 @@
 export const IS_AUTHENTICATED = "IS_AUTHENTICATED";
 export const SHOW_TOAST = "SHOW_TOAST";
-export const PERSONAL_DETAILS = "PERSONAL_DETAILS";
+export const GET_POST_LIST = "GET_POST_LIST";
