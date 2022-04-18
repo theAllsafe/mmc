@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/mmc/build/static/css/main.1a34e1ec.css",
-    "main.js": "/mmc/build/static/js/main.6aab630b.js",
+    "main.js": "/mmc/build/static/js/main.c2c76ec0.js",
     "static/media/masjidicon1.svg": "/mmc/build/static/media/masjidicon1.708c6cdb943d70f4ea54d6d8f91609d7.svg",
     "static/media/profilebg.svg": "/mmc/build/static/media/profilebg.ca634a439360bb566751a0f03b0b5f67.svg",
     "static/media/businessLo.svg": "/mmc/build/static/media/businessLo.5d80260de29eab1b8f818ccceddf4817.svg",
@@ -101,10 +101,10 @@
     "static/media/message.svg": "/mmc/build/static/media/message.f3564318e688ea9dc9ddd0113e729ee9.svg",
     "static/media/fillshare.svg": "/mmc/build/static/media/fillshare.c6b7ea5905218a2595bb5907b7d7975e.svg",
     "main.1a34e1ec.css.map": "/mmc/build/static/css/main.1a34e1ec.css.map",
-    "main.6aab630b.js.map": "/mmc/build/static/js/main.6aab630b.js.map"
+    "main.c2c76ec0.js.map": "/mmc/build/static/js/main.c2c76ec0.js.map"
   },
   "entrypoints": [
     "static/css/main.1a34e1ec.css",
-    "static/js/main.6aab630b.js"
+    "static/js/main.c2c76ec0.js"
   ]
 }
