@@ -114,10 +114,6 @@ export default function () {
                 <ul className='text-white font-bold flex flex-col gap-5'>
                     <li> <h1 className='text-3xl float-left ml-8 '>Security</h1></li>
 
-
-
-
-
                     <li className=' grow'>
 
                         <div>
@@ -128,7 +124,7 @@ export default function () {
                     <li>
 
                         <div>
-                            <span className='absolute block ml-10'><LockIcon /> Current Password</span>
+                            <span className='absolute block ml-10'><LockIcon /> New Password</span>
                             <input type="text" className='float-left p-5 ml-8 mr-10 rounded-lg bg-inherit  border border-green-300' />
                         </div>
                         <div>

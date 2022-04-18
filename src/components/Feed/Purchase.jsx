@@ -48,7 +48,7 @@ const Purchase = () => {
               <img
                 src={meat}
                 alt="meat"
-                className="h-12 w-12 border-1 border-green-400 rounded-full"
+                className="h-12 w-12 border border-green-400 rounded-full"
               />
             </div>
             <div className="h-16 col-span-3 text-left mb-3">
@@ -76,7 +76,7 @@ const Purchase = () => {
               <img
                 src={tshirt}
                 alt="tshirt"
-                className="h-12 w-12 border-1 border-green-400 rounded-full"
+                className="h-12 w-12 border border-green-400 rounded-full"
               />
             </div>
             <div className="h-16 col-span-3 text-left mb-3">
@@ -104,7 +104,7 @@ const Purchase = () => {
               <img
                 src={ring}
                 alt="ring"
-                className="h-12 w-12 border-1 border-green-400 rounded-full"
+                className="h-12 w-12 border border-green-400 rounded-full"
               />
             </div>
             <div className="h-16 col-span-3 text-left mb-3">

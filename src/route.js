@@ -92,6 +92,7 @@ const BaseRoute = () => {
           <ProtectedRoute exact path="/Help" component={Help} />
           <ProtectedRoute exact path="/Preferences" component={Preference} />
           <ProtectedRoute exact path="/privacy" component={PrivacySetting} />
+          <ProtectedRoute exact path="/Notifications" component={Notifications} />
         </Switch>
       </CookiesProvider>
     </>

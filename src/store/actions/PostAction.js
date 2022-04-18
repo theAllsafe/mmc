@@ -7,7 +7,6 @@ export const getPostList = () => {
       .get(`post`)
       .then((response) => {
         console.log(`🚀 - return - Postlist`, response);
-
         const data = response.data.data;
         // console.log(data);
         dispatch({

@@ -3,8 +3,8 @@ import config from "../config/";
 import Cookies from "universal-cookie";
 // const config = require('config');
 const api = axios.create({
-  // baseURL: "https://mmcbackend123.herokuapp.com/",
-  baseURL: "http://192.168.29.112:3002/",
+  // baseURL: "http://3.110.183.237:3002/",
+  baseURL: "http://localhost:3002/",
 });
 const cookies = new Cookies();
 api.interceptors.request.use(
