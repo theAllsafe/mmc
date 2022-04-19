@@ -21,7 +21,7 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <Router basename={"/mmc/build"}>
+        <Router>
           <BaseRoute />
         </Router>
       </div>
