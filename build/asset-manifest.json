@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.1a34e1ec.css",
-    "main.js": "/static/js/main.75de2875.js",
+    "main.css": "/static/css/main.bfe8c444.css",
+    "main.js": "/static/js/main.a0ae5ad7.js",
     "static/media/masjidicon1.svg": "/static/media/masjidicon1.708c6cdb943d70f4ea54d6d8f91609d7.svg",
     "static/media/profilebg.svg": "/static/media/profilebg.ca634a439360bb566751a0f03b0b5f67.svg",
     "static/media/businessLo.svg": "/static/media/businessLo.5d80260de29eab1b8f818ccceddf4817.svg",
@@ -23,7 +23,6 @@
     "static/media/waqfSu.svg": "/static/media/waqfSu.9494200a5992063ac34ad3f13caafeea.svg",
     "static/media/mosqueSu.svg": "/static/media/mosqueSu.d0ede884ec3ddc07a626e7d9cf4e9b54.svg",
     "static/media/individualLo.svg": "/static/media/individualLo.efc39cc14e4f5edc54fe9914a6e7f59c.svg",
-    "static/media/Profileimg.svg": "/static/media/Profileimg.cd1f95d712d0d72d376240bd58df7a46.svg",
     "static/media/tshirt.svg": "/static/media/tshirt.2a75418c3db05358abae6ae8039118ba.svg",
     "static/media/gulamicon.svg": "/static/media/gulamicon.826557fd310164c41130def0d1446445.svg",
     "static/media/more3.svg": "/static/media/more3.29b4f5a7f73db696f8c5987546f4f122.svg",
@@ -100,11 +99,11 @@
     "index.html": "/index.html",
     "static/media/message.svg": "/static/media/message.f3564318e688ea9dc9ddd0113e729ee9.svg",
     "static/media/fillshare.svg": "/static/media/fillshare.c6b7ea5905218a2595bb5907b7d7975e.svg",
-    "main.1a34e1ec.css.map": "/static/css/main.1a34e1ec.css.map",
-    "main.75de2875.js.map": "/static/js/main.75de2875.js.map"
+    "main.bfe8c444.css.map": "/static/css/main.bfe8c444.css.map",
+    "main.a0ae5ad7.js.map": "/static/js/main.a0ae5ad7.js.map"
   },
   "entrypoints": [
-    "static/css/main.1a34e1ec.css",
-    "static/js/main.75de2875.js"
+    "static/css/main.bfe8c444.css",
+    "static/js/main.a0ae5ad7.js"
   ]
 }
