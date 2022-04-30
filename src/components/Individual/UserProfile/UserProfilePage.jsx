@@ -5,9 +5,9 @@ import FeedNav from "../../Feed/FeedNav";
 import CameraAltIcon from "@mui/icons-material/CameraAlt";
 import QrCode2Icon from "@mui/icons-material/QrCode2";
 import AddIcon from "@mui/icons-material/Add";
-import { api } from "../../../helper/instance";
-import { useDispatch } from "react-redux";
-import { SHOW_TOAST } from "../../../store/constant/types";
+// import { api } from "../../../helper/instance";
+import { useDispatch, useSelector } from "react-redux";
+// import { SHOW_TOAST } from "../../../store/constant/types";
 import FontLoader from "./FontLoader";
 import UserPost from "./posts/UserPost";
 import Wallet from "./Wallet";
@@ -15,6 +15,7 @@ import UserInfo from "./UserInfo";
 import Photos from "./Photos";
 import Friends from "./Friends";
 import Tabs from "./Tabs";
+import { getuserById } from "../../../store/actions/UserAction";
 
 const useStyles = makeStyles((theme) => ({
   maincont: {
@@ -153,25 +154,12 @@ const UserProfilePage = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
   const [user, setUser] = useState();
-
+  const { userList } = useSelector((state) => state.user);
   useEffect(() => {
-    const getuserById = async () => {
-      await api
-        .get("user")
-        .then((res) => {
-          const data = res.data.data[0];
-          console.log(data);
-          setUser(data);
-        })
-        .catch((error) => {
-          console.log(error);
-          dispatch({ type: SHOW_TOAST, payload: error.message });
-        });
-    };
-    getuserById();
+    dispatch(getuserById());
+    setUser(userList);
   }, []);
 
-  console.log("user", user);
   return (
     <div>
       <FontLoader />
@@ -197,7 +185,8 @@ const UserProfilePage = () => {
                   <img
                     src={user.image}
                     alt="profilepic"
-                    className={`relative w-1/6 border-0 rounded-full ${classes.profilepic}`}
+                    style={{ width: "230px", height: "230px" }}
+                    className={`relative w-1/6 border-2 rounded-full ${classes.profilepic}`}
                   />
                   <div
                     className={`h-4 w-4 md:h-8 md:w-8 lg:h-10 lg:w-10 bg-blue-400 rounded-full items-center flex justify-center absolute ${classes.Addicon}`}

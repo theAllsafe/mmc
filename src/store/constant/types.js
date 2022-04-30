@@ -2,3 +2,4 @@ export const IS_AUTHENTICATED = "IS_AUTHENTICATED";
 export const SHOW_TOAST = "SHOW_TOAST";
 export const GET_POST_LIST = "GET_POST_LIST";
 export const GET_NOTIFICATION_LIST = "GET_NOTIFICATION_LIST";
+export const GET_USER_ID = "GET_USER_ID";

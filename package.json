@@ -1,7 +1,7 @@
 {
   "name": "masjid",
   "version": "0.1.0",
-  "private": true,  
+  "private": true,
   "dependencies": {
     "@emotion/core": "^11.0.0",
     "@emotion/react": "^11.8.1",
@@ -22,16 +22,18 @@
     "react-cookie": "^4.1.1",
     "react-dom": "^17.0.2",
     "react-google-font-loader": "^1.1.0",
+    "react-images-uploading": "^3.1.6",
     "react-redux": "^7.2.6",
     "react-router-dom": "^5.2.0",
     "react-scripts": "5.0.0",
     "redux": "^4.1.2",
+    "redux-persist": "^6.0.0",
     "redux-thunk": "^2.4.1",
     "styled-components": "^5.3.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "BROWSER=none react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

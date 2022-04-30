@@ -80,18 +80,19 @@ const grey = {
 
 const Chatparticipate = ({ notificationList }) => {
   const [chat_ParticipateNotifiaction, setChat_ParticipateNotifiaction] =
-    useState(notificationList.chat_ParticipateNotifiaction);
+    useState(notificationList?.chat_ParticipateNotifiaction);
   const handleNotification = async () => {
     await api
       .post(`notification/add`, {
-        general_Notifications: notificationList.general_Notifications,
-        general_Sounds: notificationList.general_Sounds,
+        general_Notifications: notificationList?.general_Notifications,
+        general_Sounds: notificationList?.general_Sounds,
         social_FriendRequestNotification:
-          notificationList.social_FriendRequestNotification,
-        social_CommentNotification: notificationList.social_CommentNotification,
-        chat_MessageNotification: notificationList.chat_MessageNotification,
+          notificationList?.social_FriendRequestNotification,
+        social_CommentNotification:
+          notificationList?.social_CommentNotification,
+        chat_MessageNotification: notificationList?.chat_MessageNotification,
         chat_ParticipateNotifiaction:
-          !notificationList.chat_ParticipateNotifiaction,
+          !notificationList?.chat_ParticipateNotifiaction,
       })
       .then((res) => {
         console.log(res.data);
@@ -109,7 +110,10 @@ const Chatparticipate = ({ notificationList }) => {
             {...label}
             name="chat_ParticipateNotifiaction"
             value={chat_ParticipateNotifiaction}
-            defaultChecked={notificationList.chat_ParticipateNotifiaction}
+            defaultChecked={
+              notificationList?.chat_ParticipateNotifiaction ||
+              chat_ParticipateNotifiaction
+            }
             onChange={(e) => setChat_ParticipateNotifiaction(e.target.checked)}
             onClick={handleNotification}
           />

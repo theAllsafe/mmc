@@ -1,10 +1,10 @@
 import axios from "axios";
-import config from "../config/";
+// import config from "../config/";
 import Cookies from "universal-cookie";
 // const config = require('config');
 const api = axios.create({
-  baseURL: "http://3.110.183.237:3002/",
-  //baseURL: "http://localhost:3002/",
+  baseURL: "http://13.233.160.8:3002/",
+  // baseURL: "http://localhost:3002/",
 });
 const cookies = new Cookies();
 api.interceptors.request.use(

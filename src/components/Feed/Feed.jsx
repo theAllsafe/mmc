@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import FeedNav from "./FeedNav";
 import publish from "./res/publish.svg";
@@ -15,6 +15,8 @@ import Postcheck from "./post/Postcheck";
 import Localjobs from "./Localjobs";
 import Recommendedjobs from "./Recommendedjobs";
 import FontLoader from "./FontLoader";
+import Picture from "./post/Picture";
+import Videos from "./post/Videos";
 
 const useStyles = makeStyles((theme) => ({
   maincont: {
@@ -89,6 +91,16 @@ const useStyles = makeStyles((theme) => ({
 const Feed = () => {
   const classes = useStyles();
 
+  const [content, setContent] = useState("publish");
+  const HandleJob = () => {
+    setContent("publish");
+  };
+  const HandleReq = () => {
+    setContent("pictures");
+  };
+  const HandleAdv = () => {
+    setContent("videos");
+  };
   return (
     <div>
       {/* font-family */}
@@ -125,18 +137,28 @@ const Feed = () => {
               </div>
               <div className={`${classes.writes}`}>
                 <div className="flex flex-row justify-evenly w-1full pt-2">
-                  <div className="flex flex-row p-auto items-center font-bold">
-                    {" "}
+                  <div
+                    className="flex flex-row p-auto  font-bold cursor-pointer"
+                    onClick={HandleJob}
+                  >
                     <span>
                       <img src={publish} alt="publish" />
                     </span>{" "}
                     <p className="pl-2">Publish</p>
                   </div>
-                  <div className="flex flex-row border-x-2 border-slate-400 px-2.5 md:px-16 text-slate-400 ">
+
+                  <div
+                    className="flex flex-row border-x-2 border-slate-400 px-2.5 md:px-16 text-slate-400 cursor-pointer "
+                    onClick={HandleReq}
+                  >
                     <ImageIcon />
                     <p className="pl-2">Pictures</p>
                   </div>
-                  <p className="flex flex-row p-auto text-slate-400">
+
+                  <p
+                    className="flex flex-row p-auto text-slate-400 cursor-pointer"
+                    onClick={HandleAdv}
+                  >
                     {" "}
                     <span className="pr-2">
                       <VideocamOutlinedIcon />
@@ -144,11 +166,25 @@ const Feed = () => {
                     Videos
                   </p>
                 </div>
-                <p className="border-t border-slate-400 my-2"></p>
+                {content === "publish" ? (
+                  <>
+                    {" "}
+                    {/* post create section*/}
+                    <Postcreate />
+                  </>
+                ) : null}
 
-                {/* post create section*/}
+                {content === "pictures" ? (
+                  <>
+                    <Picture />
+                  </>
+                ) : null}
 
-                <Postcreate />
+                {content === "videos" ? (
+                  <>
+                    <Videos />
+                  </>
+                ) : null}
               </div>
               {/* post list */}
               <Postlist />

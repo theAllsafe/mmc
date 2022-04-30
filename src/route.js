@@ -29,7 +29,7 @@ import PrivacySetting from "./components/PrivacySetting/PrivacySetting";
 import { CookiesProvider, withCookies } from "react-cookie";
 import Cookies from "universal-cookie";
 import Notifications from "./components/Notifications/Notifications";
-
+import Setting from "./components/Usersetting/Setting";
 
 const ProtectedRoute = (props) => {
   const { component: Component, ...prop } = props;
@@ -85,19 +85,21 @@ const BaseRoute = () => {
             component={UserProfilePage}
           />
 
- 
           <ProtectedRoute exact path="/Sidenav" component={Sidenav} />
-          <ProtectedRoute exact path="/Security" component={Security} />
+          <ProtectedRoute exact path="/security" component={Security} />
           <ProtectedRoute exact path="/Profile" component={UserProfile} />
           <ProtectedRoute exact path="/Help" component={Help} />
           <ProtectedRoute exact path="/Preferences" component={Preference} />
-          <ProtectedRoute exact path="/privacy" component={PrivacySetting} />
-          <ProtectedRoute exact path="/Notifications" component={Notifications} />
+          <ProtectedRoute exact path="/Privacy" component={PrivacySetting} />
+          <ProtectedRoute
+            exact
+            path="/Notifications"
+            component={Notifications}
+          />
+          <ProtectedRoute exact path="/setting" component={Setting} />
         </Switch>
       </CookiesProvider>
     </>
- 
-      
   );
 };
 

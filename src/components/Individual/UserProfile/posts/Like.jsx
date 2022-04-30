@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 const Like = ({ postId }) => {
   const classes = useStyles();
   const [like, setLike] = useState({
-    isLike: postId.like[0].isLike,
+    isLike: postId?.like[0]?.isLike,
   });
 
   const handleLike = async () => {

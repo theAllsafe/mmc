@@ -2,7 +2,7 @@ import React from "react";
 import Sidenav from "../SideNav/SideNav";
 import { makeStyles } from "@material-ui/styles";
 import Historyicon from "./res/Historyicon.svg";
-import DConnectedAppsicon from "./res/Downloadicon.svg";
+// import DConnectedAppsicon from "./res/Downloadicon.svg";
 import ConnectedAppsicon from "./res/ConnectedAppsicon.svg";
 import Manageacount from "./res/Manageacount.svg";
 import Integration from "./res/Integration.svg";
@@ -36,8 +36,8 @@ export default function UserProfile() {
         <div className="grid grid-cols-3 p-4 gap-y-4 gap-x-4 pr-20">
           <div className="h-44 w-22  border-solid border-2 border-green-300 rounded-lg">
             <div className="flex flex-col items-start pl-7 gap-2 ">
-              <a className="  pt-7">
-                <img src={Profileicon} />
+              <a className="pt-7" href="/">
+                <img src={Profileicon} alt="" />
               </a>
               <h1 className="text-white font-bold text-xl">
                 Personal Information
@@ -49,8 +49,8 @@ export default function UserProfile() {
           </div>
           <div className="h-44 w-22  border-solid border-2 border-green-300 rounded-lg">
             <div className="flex flex-col items-start pl-7 gap-2 ">
-              <a className="pt-7">
-                <img src={Historyicon} />
+              <a className="pt-7" href="/">
+                <img src={Historyicon} alt="" />
               </a>
               <h1 className="text-white font-bold text-xl">History</h1>
               <h2 className="text-white font-medium text-lg">
@@ -60,8 +60,8 @@ export default function UserProfile() {
           </div>
           <div className="h-44 w-22  border-solid border-2 border-green-300 rounded-lg">
             <div className="flex flex-col items-start pl-7 gap-2 ">
-              <a className="  pt-7">
-                <img src={Downloadicon} />
+              <a className="  pt-7" href="/">
+                <img src={Downloadicon} alt="" />
               </a>
               <h1 className="text-white font-bold text-xl">Download</h1>
               <h2 className="text-white font-medium text-lg">
@@ -71,8 +71,8 @@ export default function UserProfile() {
           </div>
           <div className="h-44 w-22  border-solid border-2 border-green-300 rounded-lg">
             <div className="flex flex-col items-start pl-7 gap-2 ">
-              <a className="  pt-7">
-                <img src={ConnectedAppsicon} />
+              <a className="  pt-7" href="/">
+                <img src={ConnectedAppsicon} alt="" />
               </a>
               <h1 className="text-white font-bold text-xl">Connected Apps</h1>
               <h2 className="text-white font-medium text-lg">
@@ -82,8 +82,8 @@ export default function UserProfile() {
           </div>
           <div className="h-44 w-22  border-solid border-2 border-green-300 rounded-lg">
             <div className="flex flex-col items-start pl-7 gap-2 ">
-              <a className="  pt-7">
-                <img src={Payementinfo} />
+              <a className="  pt-7" href="/">
+                <img src={Payementinfo} alt="" />
               </a>
               <h1 className="text-white font-bold text-xl">Payment Info</h1>
               <h2 className="text-white font-medium text-lg">
@@ -93,8 +93,8 @@ export default function UserProfile() {
           </div>
           <div className="h-44 w-22  border-solid border-2 border-green-300 rounded-lg">
             <div className="flex flex-col items-start pl-7 gap-2 ">
-              <a className="  pt-7">
-                <img src={Manageacount} />
+              <a className="  pt-7" href="/">
+                <img src={Manageacount} alt="" />
               </a>
               <h1 className="text-white font-bold text-xl">Account</h1>
               <h2 className="text-white font-medium text-lg">
@@ -104,8 +104,8 @@ export default function UserProfile() {
           </div>
           <div className="h-44 w-22  border-solid border-2 border-green-300 rounded-lg">
             <div className="flex flex-col items-start pl-7 gap-2 ">
-              <a className="  pt-7">
-                <img src={Integration} />
+              <a className="  pt-7" href="/">
+                <img src={Integration} alt="" />
               </a>
               <h1 className="text-white font-bold text-xl">Integrations</h1>
               <h2 className="text-white font-medium text-lg">
@@ -115,8 +115,8 @@ export default function UserProfile() {
           </div>
           <div className="h-44 w-22  border-solid border-2 border-green-300 rounded-lg">
             <div className="flex flex-col items-start pl-7 gap-2 ">
-              <a className="  pt-7">
-                <img src={Shopsetting} />
+              <a className="  pt-7" href="/">
+                <img src={Shopsetting} alt="" />
               </a>
               <h1 className="text-white font-bold text-xl">Shop Settings</h1>
               <h2 className="text-white font-medium text-lg">
@@ -126,8 +126,8 @@ export default function UserProfile() {
           </div>
           <div className="h-44 w-22  border-solid border-2 border-green-300 rounded-lg">
             <div className="flex flex-col items-start pl-7 gap-2 ">
-              <a className="  pt-7">
-                <img src={Systemsetting} />
+              <a className="  pt-7" href="/">
+                <img src={Systemsetting} alt="" />
               </a>
               <h1 className="text-white font-bold text-xl">System Settings</h1>
               <h2 className="text-white font-medium text-lg">

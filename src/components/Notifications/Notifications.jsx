@@ -25,9 +25,9 @@ const useStyles = makeStyles((theme) => ({
     marginTop: "8%",
   },
 }));
-const blue = {
-  500: "#007FFF",
-};
+// const blue = {
+//   500: "#007FFF",
+// };
 
 const grey = {
   400: "#BFC7CF",
@@ -110,23 +110,24 @@ export default function Notifications() {
     dispatch(getNotificationList());
   }, []);
 
-  console.log(notificationList);
+  // console.log(notificationList);
 
   const [general_Notifications, setGeneral_Notification] = useState(
-    notificationList.general_Notifications
+    notificationList?.general_Notifications
   );
 
   const handleNotification = async () => {
     await api
       .post(`notification/add`, {
-        general_Notifications: !notificationList.general_Notifications,
-        general_Sounds: notificationList.general_Sounds,
+        general_Notifications: !notificationList?.general_Notifications,
+        general_Sounds: notificationList?.general_Sounds,
         social_FriendRequestNotification:
-          notificationList.social_FriendRequestNotification,
-        social_CommentNotification: notificationList.social_CommentNotification,
-        chat_MessageNotification: notificationList.chat_MessageNotification,
+          notificationList?.social_FriendRequestNotification,
+        social_CommentNotification:
+          notificationList?.social_CommentNotification,
+        chat_MessageNotification: notificationList?.chat_MessageNotification,
         chat_ParticipateNotifiaction:
-          notificationList.chat_ParticipateNotifiaction,
+          notificationList?.chat_ParticipateNotifiaction,
       })
       .then((res) => {
         console.log(res.data);
@@ -145,7 +146,7 @@ export default function Notifications() {
           Privacy Settings
         </h1>
       </div>
-      {notificationList && (
+      {notificationList ? (
         <>
           <div
             className={` flex flex-col gap-3 py-6 rounded-xl ${classes.items}`}
@@ -162,7 +163,58 @@ export default function Notifications() {
                   {...label}
                   name="general_Notifications"
                   value={general_Notifications}
-                  defaultChecked={notificationList.general_Notifications}
+                  defaultChecked={notificationList?.general_Notifications}
+                  onChange={(e) => setGeneral_Notification(e.target.checked)}
+                  onClick={handleNotification}
+                />
+                <div className="flex flex-col gap-2 items-start text-white">
+                  <h1 className="font-bold tracking-wider">Notifications</h1>
+                  <h3 className="text-sm tracking-widest text-gray-500">
+                    Enable to make your profile viewable by anyone.
+                  </h3>
+                </div>
+              </div>
+            </div>
+            {/* general sounds switch */}
+            <Generalsounds notificationList={notificationList} />
+            <hr className="text-gray-500" />
+
+            <h1 className="text-white justify-start flex text-xl font-semibold ml-7">
+              Social Notifications
+            </h1>
+            {/* social friend request switch */}
+            <Friendrequest notificationList={notificationList} />
+            {/* social comment switch */}
+            <Comment notificationList={notificationList} />
+            <hr className="text-gray-500" />
+
+            <h1 className="text-white justify-start flex text-xl font-semibold ml-7">
+              Chat Notifications
+            </h1>
+            {/* chat message switch */}
+            <Chatmessage notificationList={notificationList} />
+            {/* chat participate switch */}
+            <Chatparticipate notificationList={notificationList} />
+            <hr className="text-gray-500" />
+          </div>
+        </>
+      ) : (
+        <>
+          <div
+            className={` flex flex-col gap-3 py-6 rounded-xl ${classes.items}`}
+          >
+            <h1 className="text-white justify-start flex text-xl font-semibold ml-7">
+              General Notifications
+            </h1>
+            {/* general notification switch */}
+            <div>
+              <div className="flex flex-row gap-4 items-start">
+                <SwitchUnstyled
+                  component={Root}
+                  {...label}
+                  name="general_Notifications"
+                  value={general_Notifications}
+                  defaultChecked={general_Notifications}
                   onChange={(e) => setGeneral_Notification(e.target.checked)}
                   onClick={handleNotification}
                 />

@@ -82,18 +82,19 @@ const Friendrequest = ({ notificationList }) => {
   const [
     social_FriendRequestNotification,
     setSocial_FriendRequestNotification,
-  ] = useState(notificationList.social_FriendRequestNotification);
+  ] = useState(notificationList?.social_FriendRequestNotification);
   const handleNotification = async () => {
     await api
       .post(`notification/add`, {
-        general_Notifications: notificationList.general_Notifications,
-        general_Sounds: notificationList.general_Sounds,
+        general_Notifications: notificationList?.general_Notifications,
+        general_Sounds: notificationList?.general_Sounds,
         social_FriendRequestNotification:
-          !notificationList.social_FriendRequestNotification,
-        social_CommentNotification: notificationList.social_CommentNotification,
-        chat_MessageNotification: notificationList.chat_MessageNotification,
+          !notificationList?.social_FriendRequestNotification,
+        social_CommentNotification:
+          notificationList?.social_CommentNotification,
+        chat_MessageNotification: notificationList?.chat_MessageNotification,
         chat_ParticipateNotifiaction:
-          notificationList.chat_ParticipateNotifiaction,
+          notificationList?.chat_ParticipateNotifiaction,
       })
       .then((res) => {
         console.log(res.data);
@@ -110,7 +111,10 @@ const Friendrequest = ({ notificationList }) => {
             {...label}
             name="social_FriendRequestNotification"
             value={social_FriendRequestNotification}
-            defaultChecked={notificationList.social_FriendRequestNotification}
+            defaultChecked={
+              notificationList?.social_FriendRequestNotification ||
+              social_FriendRequestNotification
+            }
             onChange={(e) =>
               setSocial_FriendRequestNotification(e.target.checked)
             }

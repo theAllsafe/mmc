@@ -79,20 +79,21 @@ const grey = {
 };
 const Generalsounds = ({ notificationList }) => {
   const [general_Sounds, setGeneral_Sounds] = useState(
-    notificationList.general_Sounds
+    notificationList?.general_Sounds
   );
 
   const handleNotification = async () => {
     await api
       .post(`notification/add`, {
-        general_Notifications: notificationList.general_Notifications,
-        general_Sounds: !notificationList.general_Sounds,
+        general_Notifications: notificationList?.general_Notifications,
+        general_Sounds: !notificationList?.general_Sounds,
         social_FriendRequestNotification:
-          notificationList.social_FriendRequestNotification,
-        social_CommentNotification: notificationList.social_CommentNotification,
-        chat_MessageNotification: notificationList.chat_MessageNotification,
+          notificationList?.social_FriendRequestNotification,
+        social_CommentNotification:
+          notificationList?.social_CommentNotification,
+        chat_MessageNotification: notificationList?.chat_MessageNotification,
         chat_ParticipateNotifiaction:
-          notificationList.chat_ParticipateNotifiaction,
+          notificationList?.chat_ParticipateNotifiaction,
       })
       .then((res) => {
         console.log(res.data);
@@ -109,7 +110,7 @@ const Generalsounds = ({ notificationList }) => {
             {...label}
             name="general_Sounds"
             value={general_Sounds}
-            defaultChecked={notificationList.general_Sounds}
+            defaultChecked={notificationList?.general_Sounds || general_Sounds}
             onChange={(e) => setGeneral_Sounds(e.target.checked)}
             onClick={handleNotification}
           />

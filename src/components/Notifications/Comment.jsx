@@ -80,20 +80,20 @@ const grey = {
 
 const Comment = ({ notificationList }) => {
   const [social_CommentNotification, setSocial_CommentNotification] = useState(
-    notificationList.setSocial_CommentNotification
+    notificationList?.setSocial_CommentNotification
   );
   const handleNotification = async () => {
     await api
       .post(`notification/add`, {
-        general_Notifications: notificationList.general_Notifications,
-        general_Sounds: notificationList.general_Sounds,
+        general_Notifications: notificationList?.general_Notifications,
+        general_Sounds: notificationList?.general_Sounds,
         social_FriendRequestNotification:
-          notificationList.social_FriendRequestNotification,
+          notificationList?.social_FriendRequestNotification,
         social_CommentNotification:
-          !notificationList.social_CommentNotification,
-        chat_MessageNotification: notificationList.chat_MessageNotification,
+          !notificationList?.social_CommentNotification,
+        chat_MessageNotification: notificationList?.chat_MessageNotification,
         chat_ParticipateNotifiaction:
-          notificationList.chat_ParticipateNotifiaction,
+          notificationList?.chat_ParticipateNotifiaction,
       })
       .then((res) => {
         console.log(res.data);
@@ -110,7 +110,10 @@ const Comment = ({ notificationList }) => {
             {...label}
             name="social_CommentNotification"
             value={social_CommentNotification}
-            defaultChecked={notificationList.social_CommentNotification}
+            defaultChecked={
+              notificationList?.social_CommentNotification ||
+              social_CommentNotification
+            }
             onChange={(e) => setSocial_CommentNotification(e.target.checked)}
             onClick={handleNotification}
           />

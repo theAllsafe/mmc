@@ -4,8 +4,9 @@ import { BrowserRouter as Router } from "react-router-dom";
 import BaseRoute from "./route";
 import { Provider } from "react-redux";
 import { setIsAuth } from "./store/actions/Auth";
-import store from "./store";
+import { persistor, store } from "./store";
 import Cookies from "universal-cookie";
+import { PersistGate } from "redux-persist/integration/react";
 
 function App() {
   const cookies = new Cookies();
@@ -13,18 +14,21 @@ function App() {
   if (token) {
     store.dispatch(setIsAuth(true));
   }
+  const active = store.getState().auth.isAuthenticated;
   useEffect(() => {
     setToken(cookies.get("access_token"));
     console.log(store.getState());
-  }, [store.getState().auth.isAuthenticated]);
+  }, [active]);
 
   return (
     <Provider store={store}>
-      <div className="App">
-        <Router>
-          <BaseRoute />
-        </Router>
-      </div>
+      <PersistGate loading={null} persistor={persistor}>
+        <div className="App">
+          <Router>
+            <BaseRoute />
+          </Router>
+        </div>
+      </PersistGate>
     </Provider>
   );
 }
