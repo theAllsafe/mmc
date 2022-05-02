@@ -22,13 +22,13 @@ const useStyles = makeStyles((theme) => ({
 
   uploadpic: {
     [theme.breakpoints.down(426)]: {
-      paddingLeft: "14%",
+      paddingLeft: "7%",
     },
     [theme.breakpoints.down(376)]: {
       paddingLeft: "4%",
     },
     [theme.breakpoints.between(768, 1024)]: {
-      paddingLeft: "24%",
+      paddingLeft: "19%",
       marginTop: "5%",
     },
   },
@@ -104,10 +104,10 @@ const UploadProfilePage = () => {
     localStorage.setItem("setpperId", 3);
   }, []);
 
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     console.log(body);
 
-    await api
+    api
       .post(`user/image`, body)
       .then((res) => {
         console.log("img is ", res.data);
@@ -150,7 +150,7 @@ const UploadProfilePage = () => {
               {preview ? (
                 <img
                   src={preview}
-                  style={{ objectFit: "cover" }}
+                  style={{ objectFit: "cover", width: "70%" }}
                   onClick={() => {
                     setImage(null);
                   }}

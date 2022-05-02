@@ -15,6 +15,9 @@ navbar: {
 },
 navbarLink: {
     paddingLeft: "40px",
+    [theme.breakpoints.between(320, 1024)]: {
+        paddingLeft: '0px',
+    },
     [theme.breakpoints.between(1024, 1250)]: {
         paddingLeft: '24px',
     },
@@ -141,7 +144,7 @@ margin-top: 10px;
 display:block;
 text-align: center;
 margin-bottom: 15px;
-
+margin-left: 10px;
 }
 
 `;

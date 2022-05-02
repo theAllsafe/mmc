@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
       paddingLeft: "12%",
     },
     [theme.breakpoints.down(376)]: {
-      paddingLeft: "0%",
+      paddingLeft: "4%",
     },
     [theme.breakpoints.between(768, 1024)]: {
       paddingLeft: "14%",
@@ -157,10 +157,10 @@ const BasicDetails = () => {
     ...otp,
   };
 
-  const basic = async (event) => {
+  const basic = (event) => {
     event.preventDefault();
     // console.log(body);
-    await api
+    api
       .post(`user/personal`, body)
       .then((res) => {
         console.log("person", res.data);
@@ -207,7 +207,7 @@ const BasicDetails = () => {
                 required
               ></input>
             </div>
-            <div className="lname lg:pl-20 text-left">
+            <div className="lname lg:pl-8 xl:pl-20 text-left">
               <label className="form-label text-sm font-bold ">Last name</label>
               <br />
               <input

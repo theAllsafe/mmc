@@ -11,6 +11,7 @@ import Navbar from "../../Navbar/Navbar";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { setIsAuth } from "../../../store/actions/Auth";
+import { Cookies } from "react-cookie";
 
 const useStyles = makeStyles((theme) => ({
   mainCon: {
@@ -25,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
       paddingLeft: "12%",
     },
     [theme.breakpoints.down(376)]: {
-      paddingLeft: "0%",
+      paddingLeft: "4%",
     },
     [theme.breakpoints.between(768, 1081)]: {
       paddingLeft: "14%",
@@ -46,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
 const BusinessLogin = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const cookies = new Cookies();
   // const { isAuthenticated } = useSelector((state) => state.auth);
   const history = useHistory();
   const [pbtnColor, setPBtnColor] = useState("#46D490");
@@ -170,32 +172,34 @@ const BusinessLogin = () => {
     ...otpValue,
   };
 
-  const handleLogin = async () => {
+  const handleLogin = () => {
     if (hidePhone === false) {
-      await api
+      api
         .post(`user/logInWithPhone`, {
           phone: logindata.phone,
           password: logindata.password,
         })
         .then((res) => {
           console.log("loginwithphone", res);
-          localStorage.setItem("access_token", res.data.token);
+          cookies.set("access_token", res.data.data.token);
           dispatch(setIsAuth(true));
+          history.push("/feed");
         })
         .catch((error) => {
           console.log(error);
         });
     }
     if (hideId === false) {
-      await api
+      api
         .post(`user/logInWithBusinessId`, {
           businessId: logindata.businessId,
           password: logindata.password,
         })
         .then((res) => {
           console.log("loginWithemail", res);
-          localStorage.setItem("access_token", res.data.token);
+          cookies.set("access_token", res.data.data.token);
           dispatch(setIsAuth(true));
+          history.push("/feed");
         })
         .catch((error) => {
           console.log(error);
@@ -361,7 +365,7 @@ const BusinessLogin = () => {
                   required
                 />
               </div>
-              <p className=" text-sm font-bold pl-16 lg:pl-64 pt-1">
+              <p className=" text-sm font-bold pl-40 md:pl-60 lg:pl-44 xl:pl-72 pt-1">
                 <i>Forgot Password?</i>
               </p>
             </>
@@ -376,7 +380,7 @@ const BusinessLogin = () => {
             </Link>
             <Link to="/">
               <p
-                className="h-15 w-36 px-9 mb-2 py-2.5 ml-4 md:ml-60 lg:ml-30 lg:ml-60 bg-green-400 rounded-md text-sm text-white font-bold"
+                className="h-15 w-36 px-9 mb-2 py-2.5 ml-4 md:ml-60 lg:ml-16 xl:ml-72 bg-green-400 rounded-md text-sm text-white font-bold"
                 onClick={handleLogin}
               >
                 Login <ArrowForwardIcon />{" "}

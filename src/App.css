@@ -36,18 +36,3 @@
     transform: rotate(360deg);
   }
 }
-.iconsidenav {
-  font-size: 2.3rem !important;
-  margin-left: -85px;
-}
-.hrtag {
-  margin: 0px !important;
-  padding: 0px !important;
-}
-.iconallside{
-  font-size: 2.2rem !important;
-  color: white;
-}
-.active-navLink{
-  background-color: #46D490;
-}

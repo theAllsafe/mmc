@@ -72,11 +72,11 @@ const Password = () => {
     ...pass,
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     console.log(body);
 
-    await api
+    api
       .post(`user/password`, body)
       .then((res) => {
         console.log("password", res.data);

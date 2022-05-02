@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
       paddingLeft: "12%",
     },
     [theme.breakpoints.down(376)]: {
-      paddingLeft: "0%",
+      paddingLeft: "3%",
     },
     [theme.breakpoints.between(768, 1024)]: {
       paddingLeft: "14%",
@@ -72,11 +72,11 @@ const OtherDetails = () => {
     ...other,
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     console.log(body);
 
-    await api
+    api
       .post(`user/musjid`, body)
       .then((res) => {
         console.log("otherdetails", res.data);
@@ -175,7 +175,7 @@ const OtherDetails = () => {
               </Link>
               <Link to="/UploadProfilePage">
                 <p
-                  className=" h-15 w-36 px-10 py-2.5 ml-4 md:ml-60 lg:ml-30 lg:ml-48 bg-green-400 rounded-md text-sm text-white font-bold"
+                  className=" h-15 w-36 px-10 py-2.5 ml-4 md:ml-60 lg:ml-30 lg:ml-32 xl:ml-72 lg:mb-8 bg-green-400 rounded-md text-sm text-white font-bold"
                   onClick={handleSubmit}
                 >
                   Next <ArrowForwardIcon />{" "}

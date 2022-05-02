@@ -136,7 +136,7 @@ margin-top: 10px;
 display:block;
 text-align: center;
 margin-bottom: 15px;
-
+margin-left: 10px;
 }
 
 `;

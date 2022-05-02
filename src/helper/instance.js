@@ -1,19 +1,19 @@
 import axios from "axios";
-import config from "../config/";
+// import config from "../config/";
+import Cookies from "universal-cookie";
 // const config = require('config');
 const api = axios.create({
-  baseURL: "https://mmcbackend123.herokuapp.com/",
-  // baseURL: "http://localhost:3002/",
+  // baseURL: "http://13.233.160.8:3002/",
+  baseURL: "http://localhost:3002/",
 });
+const cookies = new Cookies();
 api.interceptors.request.use(
   function (config) {
     config.headers = {
       ...config.headers,
     };
-    if (localStorage.getItem("access_token")) {
-      config.headers["x-access-token"] = `${localStorage.getItem(
-        "access_token"
-      )}`;
+    if (cookies.get("access_token")) {
+      config.headers["Authorization"] = `${cookies.get("access_token")}`;
     }
     return config;
   },
@@ -39,7 +39,7 @@ api.interceptors.response.use(
       originalRequest.url.includes("/account/token/refresh/")
     ) {
       console.log("response in interceptor line number 48");
-      localStorage.clear();
+      cookies.remove("access_token");
       return;
     } else if (err?.response?.status === 401 && !originalRequest._retry) {
       console.log("response in interceptor line number 53");

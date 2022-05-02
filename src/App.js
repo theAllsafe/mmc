@@ -4,23 +4,31 @@ import { BrowserRouter as Router } from "react-router-dom";
 import BaseRoute from "./route";
 import { Provider } from "react-redux";
 import { setIsAuth } from "./store/actions/Auth";
-import store from "./store";
+import { persistor, store } from "./store";
+import Cookies from "universal-cookie";
+import { PersistGate } from "redux-persist/integration/react";
 
 function App() {
-  const [token, setToken] = useState(localStorage.getItem("access_token"));
+  const cookies = new Cookies();
+  const [token, setToken] = useState(cookies.get("access_token"));
   if (token) {
     store.dispatch(setIsAuth(true));
   }
+  const active = store.getState().auth.isAuthenticated;
   useEffect(() => {
-    setToken(localStorage.getItem("access_token"));
-  }, [store.getState().auth.isAuthenticated]);
+    setToken(cookies.get("access_token"));
+    console.log(store.getState());
+  }, [active]);
+
   return (
     <Provider store={store}>
-      <div className="App">
-        <Router>
-          <BaseRoute />
-        </Router>
-      </div>
+      <PersistGate loading={null} persistor={persistor}>
+        <div className="App">
+          <Router>
+            <BaseRoute />
+          </Router>
+        </div>
+      </PersistGate>
     </Provider>
   );
 }
