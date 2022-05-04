@@ -1,7 +1,7 @@
 // import { text } from '@fortawesome/fontawesome-svg-core';
 import { makeStyles } from "@material-ui/styles";
 // import { height } from '@mui/system';
-import React from "react";
+import React, { useState } from "react";
 import Sidenav from "../SideNav/SideNav";
 import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 import LockIcon from "@mui/icons-material/Lock";
@@ -100,6 +100,7 @@ const Root = styled("span")(
 
 export default function Security() {
   const classes = useStyles();
+  const [show, setShow] = useState(true);
   const label = { componentsProps: { input: { "aria-label": "Demo switch" } } };
   return (
     <div className={`${classes.maincont}`}>
@@ -156,7 +157,12 @@ export default function Security() {
             <div className="flex ml-8">
               <div>
                 {" "}
-                <SwitchUnstyled component={Root} {...label} defaultChecked />
+                <SwitchUnstyled
+                  component={Root}
+                  {...label}
+                  defaultChecked
+                  onClick={() => setShow(!show)}
+                />
               </div>
               <div className="">
                 {" "}
@@ -171,17 +177,19 @@ export default function Security() {
             </div>
           </li>
 
-          <li>
-            <div>
-              <span className="absolute block ml-10">
-                <PhoneIphoneIcon /> Phone Number
-              </span>
-              <input
-                type="text"
-                className="float-left p-5 ml-8 mr-10 rounded-lg bg-inherit  border border-green-300"
-              />
-            </div>
-          </li>
+          {show ? (
+            <li>
+              <div>
+                <span className="absolute block ml-10">
+                  <PhoneIphoneIcon /> Phone Number
+                </span>
+                <input
+                  type="text"
+                  className="float-left p-5 ml-8 mr-10 rounded-lg bg-inherit  border border-green-300"
+                />
+              </div>
+            </li>
+          ) : null}
 
           <li className=" flex float-left ml-60 mt-4">
             <button className={`p-3 px-10 rounded-lg ${classes.butcolor}`}>
