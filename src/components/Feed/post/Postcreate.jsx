@@ -8,11 +8,9 @@ import LanguageIcon from "@mui/icons-material/Language";
 import PeopleOutlineIcon from "@mui/icons-material/PeopleOutline";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-// import SendIcon from "@mui/icons-material/Send";
 import Button from "@mui/material/Button";
 import PhotoCameraOutlinedIcon from "@mui/icons-material/PhotoCameraOutlined";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-// import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   maincont: {
@@ -89,6 +87,7 @@ const Postcreate = () => {
           description: "",
         });
         setImage("");
+        // window.location.reload();
       })
       .catch((error) => {
         console.log(error);

@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import cart from "./res/cart.svg";
-import meat from "./res/meat.svg";
+
 import star from "./res/star.svg";
-import tshirt from "./res/tshirt.svg";
-import ring from "./res/ring.svg";
+
 import MoreVertIcon from "@mui/icons-material/MoreVert";
+import { useDispatch, useSelector } from "react-redux";
+import { getproductList } from "../../store/actions/ProductAction";
+import moment from "moment";
 
 const useStyles = makeStyles((theme) => ({
   maincont: {
@@ -25,6 +27,11 @@ const useStyles = makeStyles((theme) => ({
 
 const Purchase = () => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const { productList } = useSelector((state) => state.product);
+  useEffect(() => {
+    dispatch(getproductList());
+  }, []);
   return (
     <>
       <div className={`mt-3 mx-auto ${classes.purchases}`}>
@@ -41,7 +48,41 @@ const Purchase = () => {
             <MoreVertIcon />
           </div>
         </div>
-        <div>
+        {/* products */}
+        {productList &&
+          productList.map((product) => {
+            return (
+              <div key={product.id}>
+                <p className="border-t border-slate-400 my-2"></p>
+                <div className="grid grid-cols-6 mx-auto w-75">
+                  <div className="h-16 col-span-2 mx-auto flex items-center">
+                    <img
+                      src={product.image}
+                      alt="meat"
+                      className="h-12 w-12 border border-green-400 rounded-full"
+                    />
+                  </div>
+                  <div className="h-16 col-span-3 text-left mb-3">
+                    <p className="text-lg text-bolder">{product.productName}</p>
+                    <p className="text-slate-200" style={{ fontSize: "10px" }}>
+                      from
+                    </p>
+                    <p className="text-sm lg:text-xs">{product.shopName}</p>
+                    <p className="text-slate-200" style={{ fontSize: "12px" }}>
+                      <i> {moment(product.createdAt).format("DD-MM-YYYY")}</i>
+                    </p>
+                  </div>
+                  <div className="h-16 col-span-1 mx-auto flex flex-col justify-center">
+                    <img src={star} alt="start" />
+                    <p className="text-slate-200" style={{ fontSize: "12px" }}>
+                      3/5
+                    </p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        {/* <div>
           <p className="border-t border-slate-400 my-2"></p>
           <div className="grid grid-cols-6 mx-auto w-75">
             <div className="h-16 col-span-2 mx-auto flex items-center">
@@ -124,7 +165,7 @@ const Purchase = () => {
               </p>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

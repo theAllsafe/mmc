@@ -10,6 +10,7 @@ import { styled } from "@mui/system";
 import SwitchUnstyled, {
   switchUnstyledClasses,
 } from "@mui/base/SwitchUnstyled";
+import { api } from "../../helper/instance";
 
 const useStyles = makeStyles((theme) => ({
   maincont: {
@@ -100,8 +101,42 @@ const Root = styled("span")(
 
 export default function Security() {
   const classes = useStyles();
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
+  const [update, setUpdate] = useState({
+    currentPassword: "",
+    newPassword: "",
+    RePassword: "",
+  });
   const label = { componentsProps: { input: { "aria-label": "Demo switch" } } };
+
+  const inputChange = (e) => {
+    const { name, value } = e.target;
+
+    setUpdate((preValue) => {
+      return {
+        ...preValue,
+        [name]: value,
+      };
+    });
+  };
+
+  const body = {
+    ...update,
+  };
+
+  const handlepasswordChange = () => {
+    api
+      .put(`user/passwordchange`, body)
+      .then((res) => {
+        console.log(res);
+        setUpdate({
+          currentPassword: "",
+          newPassword: "",
+          RePassword: "",
+        });
+      })
+      .catch((error) => console.log(error));
+  };
   return (
     <div className={`${classes.maincont}`}>
       <div>
@@ -122,6 +157,9 @@ export default function Security() {
               </span>
               <input
                 type="text"
+                name="currentPassword"
+                value={update.currentPassword}
+                onChange={inputChange}
                 className="pr-80 h-16 float-left ml-8 rounded-lg bg-inherit border border-green-300"
               />
             </div>
@@ -133,6 +171,9 @@ export default function Security() {
               </span>
               <input
                 type="text"
+                name="newPassword"
+                value={update.newPassword}
+                onChange={inputChange}
                 className="float-left p-5 ml-8 mr-10 rounded-lg bg-inherit  border border-green-300"
               />
             </div>
@@ -142,6 +183,9 @@ export default function Security() {
               </span>
               <input
                 type="text"
+                name="RePassword"
+                value={update.RePassword}
+                onChange={inputChange}
                 className="float-left p-5 rounded-lg bg-inherit border border-green-300"
               />
             </div>
@@ -160,7 +204,7 @@ export default function Security() {
                 <SwitchUnstyled
                   component={Root}
                   {...label}
-                  defaultChecked
+                  defaultunchecked
                   onClick={() => setShow(!show)}
                 />
               </div>
@@ -192,7 +236,10 @@ export default function Security() {
           ) : null}
 
           <li className=" flex float-left ml-60 mt-4">
-            <button className={`p-3 px-10 rounded-lg ${classes.butcolor}`}>
+            <button
+              className={`p-3 px-10 rounded-lg ${classes.butcolor}`}
+              onClick={handlepasswordChange}
+            >
               Save Changes
             </button>
           </li>

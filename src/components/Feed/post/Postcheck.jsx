@@ -184,13 +184,11 @@ const Postcheck = () => {
                             key={job.id}
                           >
                             <div className="h-14  mx-auto">
-                              <div className={` ${classes.sbox}`}>
-                                <img
-                                  src={job.image}
-                                  alt="Pipingicon"
-                                  className="pt-3 "
-                                />
-                              </div>
+                              <img
+                                src={job.image}
+                                alt="Pipingicon"
+                                className="h-12 w-12 border border-green-400 rounded-full"
+                              />
                             </div>
                             <div className="h-14 text-left">
                               <p className={`text-bolder ${classes.tjob}`}>

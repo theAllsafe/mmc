@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.bfe8c444.css",
-    "main.js": "/static/js/main.104612c7.js",
+    "main.js": "/static/js/main.9dd0b0d9.js",
     "static/media/masjidicon1.svg": "/static/media/masjidicon1.708c6cdb943d70f4ea54d6d8f91609d7.svg",
     "static/media/profilebg.svg": "/static/media/profilebg.ca634a439360bb566751a0f03b0b5f67.svg",
     "static/media/businessLo.svg": "/static/media/businessLo.5d80260de29eab1b8f818ccceddf4817.svg",
@@ -18,15 +18,12 @@
     "static/media/rafiki.svg": "/static/media/rafiki.9a146516453810bda1ac1e8d54003bd3.svg",
     "static/media/more4.svg": "/static/media/more4.efb997806528be954f6abf6dbb0cfc01.svg",
     "static/media/businessSu.svg": "/static/media/businessSu.5f37e84ea48d6be9507a4adb229c5e02.svg",
-    "static/media/ring.svg": "/static/media/ring.1cb7b25213a2e77ae401a6ce7fc24f46.svg",
     "static/media/Signup.png": "/static/media/Signup.0b0bcc66d0ef852aa887.png",
     "static/media/waqfSu.svg": "/static/media/waqfSu.9494200a5992063ac34ad3f13caafeea.svg",
     "static/media/mosqueSu.svg": "/static/media/mosqueSu.d0ede884ec3ddc07a626e7d9cf4e9b54.svg",
     "static/media/individualLo.svg": "/static/media/individualLo.efc39cc14e4f5edc54fe9914a6e7f59c.svg",
-    "static/media/tshirt.svg": "/static/media/tshirt.2a75418c3db05358abae6ae8039118ba.svg",
     "static/media/gulamicon.svg": "/static/media/gulamicon.826557fd310164c41130def0d1446445.svg",
     "static/media/more3.svg": "/static/media/more3.29b4f5a7f73db696f8c5987546f4f122.svg",
-    "static/media/meat.svg": "/static/media/meat.03c1240dd3acd50d3e3daee2b97737bc.svg",
     "static/media/friend1.svg": "/static/media/friend1.91d0206948fa8e35da815adcb047b1fa.svg",
     "static/media/friend2.svg": "/static/media/friend2.4348cbc1b3b28e133974f50ed67dc9e7.svg",
     "static/media/photo.svg": "/static/media/photo.0e381f1ba1ea303ef90de469fdfec0d3.svg",
@@ -100,10 +97,10 @@
     "static/media/message.svg": "/static/media/message.f3564318e688ea9dc9ddd0113e729ee9.svg",
     "static/media/fillshare.svg": "/static/media/fillshare.c6b7ea5905218a2595bb5907b7d7975e.svg",
     "main.bfe8c444.css.map": "/static/css/main.bfe8c444.css.map",
-    "main.104612c7.js.map": "/static/js/main.104612c7.js.map"
+    "main.9dd0b0d9.js.map": "/static/js/main.9dd0b0d9.js.map"
   },
   "entrypoints": [
     "static/css/main.bfe8c444.css",
-    "static/js/main.104612c7.js"
+    "static/js/main.9dd0b0d9.js"
   ]
 }

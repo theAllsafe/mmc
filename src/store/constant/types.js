@@ -4,3 +4,4 @@ export const GET_POST_LIST = "GET_POST_LIST";
 export const GET_NOTIFICATION_LIST = "GET_NOTIFICATION_LIST";
 export const GET_USER_ID = "GET_USER_ID";
 export const GET_JOB_LIST = "GET_JOB_LIST";
+export const GET_PRODUCT_LIST = "GET_PRODUCT_LIST";
