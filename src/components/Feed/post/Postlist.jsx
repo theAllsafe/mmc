@@ -104,7 +104,8 @@ const Postlist = () => {
                   </div>
                 </div>
                 <div style={{ position: "relative" }}>
-                  {data.image != null && data.image != "" ? (
+                  <div>{data.description}</div>
+                  {data.image !== null && data.image !== "" ? (
                     <div className={`flex justify-center ${classes.uploadcon}`}>
                       <img
                         src={data.image}

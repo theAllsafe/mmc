@@ -90,13 +90,16 @@ const UserPost = ({ post }) => {
                       <MoreVertIcon />
                     </div>
                   </div>
-                  <div className={`flex justify-center ${classes.uploadcon}`}>
-                    <img
-                      src={data.image}
-                      alt="uploadedpic1"
-                      className={` ${classes.uploadpic}`}
-                    />
-                  </div>
+                  <div>{data.description}</div>
+                  {data.image !== null && data.image !== "" ? (
+                    <div className={`flex justify-center ${classes.uploadcon}`}>
+                      <img
+                        src={data.image}
+                        alt="uploadedpic1"
+                        className={` ${classes.uploadpic}`}
+                      />
+                    </div>
+                  ) : null}
                   {/* cooment like and share */}
                   <CommentandLike postId={data} />
                   {/* like and comment count */}
