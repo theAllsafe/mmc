@@ -1,10 +1,1 @@
-<svg width="65" height="65" viewBox="0 0 65 65" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<rect x="9" y="9" width="48" height="48" fill="url(#pattern0)"/>
-<circle cx="32.5" cy="32.5" r="32" stroke="#46D490"/>
-<defs>
-<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
-<use xlink:href="#image0_63_38" transform="scale(0.0208333)"/>
-</pattern>
-<image id="image0_63_38" width="48" height="48" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAAzElEQVRoge3YOw6CQBSF4QO+OkPcgx2LsDJxL8aQWNvZY9iMCZuwsbNwBxZ2Fj42IGEyuXdOjOdrgQt/BkgAEBFhyro2LM+Ht8P5dm1Z7S0H5pbDAmwXp7qwHJg6oBiPsrXlwNQBgPEqpH4GorVl9fVaGStgSgFsCmBTAJsC2BTApgA2BbApgG0YumPXF1Gf1aWZPh+vK4BZzPF93FfgON/cAdRe85PcQoNJ3gC4ecxOEuC5CsF/JWKfAW8//xZSAJsC2BTApgARkf/2Acc0IDSgYWp2AAAAAElFTkSuQmCC"/>
-</defs>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="65" height="65" fill="none" viewBox="0 0 65 65"><rect width="48" height="48" x="9" y="9" fill="url(#pattern0)"/><circle cx="32.5" cy="32.5" r="32" stroke="#46D490"/><defs><pattern id="pattern0" width="1" height="1" patternContentUnits="objectBoundingBox"><use transform="scale(0.0208333)" xlink:href="#image0_63_38"/></pattern><image id="image0_63_38" width="48" height="48" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABmJLR0QA/wD/AP+gvaeTAAAAzElEQVRoge3YOw6CQBSF4QO+OkPcgx2LsDJxL8aQWNvZY9iMCZuwsbNwBxZ2Fj42IGEyuXdOjOdrgQt/BkgAEBFhyro2LM+Ht8P5dm1Z7S0H5pbDAmwXp7qwHJg6oBiPsrXlwNQBgPEqpH4GorVl9fVaGStgSgFsCmBTAJsC2BTApgA2BbApgG0YumPXF1Gf1aWZPh+vK4BZzPF93FfgON/cAdRe85PcQoNJ3gC4ecxOEuC5CsF/JWKfAW8//xZSAJsC2BTApgARkf/2Acc0IDSgYWp2AAAAAElFTkSuQmCC"/></defs></svg>
