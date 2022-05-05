@@ -12,6 +12,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { setIsAuth } from "../../../store/actions/Auth";
 import { Cookies } from "react-cookie";
+import { phonevalidation } from "../../../helper/utils";
 
 const useStyles = makeStyles((theme) => ({
   mainCon: {
@@ -70,13 +71,17 @@ const BusinessLogin = () => {
   const [showResults, setShowResults] = useState(false);
 
   const displayPhoneCode = () => {
-    setShowResults(true);
-    api
-      .post(`user/logInOtpPhone`, { phone: logindata.phone })
-      .then((res) => console.log("otp", res))
-      .catch((error) => console.log(error));
-    console.log(logindata.phone);
-    pbtnColor === "#46D490" ? setPBtnColor("#5C5C5C") : setPBtnColor("#5C5C5C");
+    if (phonevalidation(phone.phone)) {
+      setShowResults(true);
+      api
+        .post(`user/logInOtpPhone`, { phone: logindata.phone })
+        .then((res) => console.log("otp", res))
+        .catch((error) => console.log(error));
+      console.log(logindata.phone);
+      pbtnColor === "#46D490"
+        ? setPBtnColor("#5C5C5C")
+        : setPBtnColor("#5C5C5C");
+    }
   };
   const displayOtpCode = () => {
     obtnColor === "#5C5C5C" ? setOBtnColor("#46D490") : setOBtnColor("#46D490");
@@ -180,10 +185,12 @@ const BusinessLogin = () => {
           password: logindata.password,
         })
         .then((res) => {
-          console.log("loginwithphone", res);
-          cookies.set("access_token", res.data.data.token);
-          dispatch(setIsAuth(true));
-          history.push("/feed");
+          if (res.data.status == true) {
+            console.log("loginwithphone", res);
+            cookies.set("access_token", res.data.data.token);
+            dispatch(setIsAuth(true));
+            history.push("/feed");
+          }
         })
         .catch((error) => {
           console.log(error);
@@ -196,10 +203,12 @@ const BusinessLogin = () => {
           password: logindata.password,
         })
         .then((res) => {
-          console.log("loginWithemail", res);
-          cookies.set("access_token", res.data.data.token);
-          dispatch(setIsAuth(true));
-          history.push("/feed");
+          if (res.data.status == true) {
+            console.log("loginWithemail", res);
+            cookies.set("access_token", res.data.data.token);
+            dispatch(setIsAuth(true));
+            history.push("/feed");
+          }
         })
         .catch((error) => {
           console.log(error);

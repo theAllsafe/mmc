@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { makeStyles } from "@material-ui/core/styles";
 import { api } from "../../../../helper/instance";
+import { useDispatch } from "react-redux";
+import { getuserById } from "../../../../store/actions/UserAction";
 
 const useStyles = makeStyles((theme) => ({
   lcsicons: {
@@ -16,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Like = ({ postId }) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
   const [like, setLike] = useState({
     isLike: postId?.like[0]?.isLike,
   });
@@ -26,7 +29,10 @@ const Like = ({ postId }) => {
         isLike: !like.isLike,
         postId: postId.id,
       })
-      .then((res) => console.log("like is", res.data.data))
+      .then((res) => {
+        console.log("like is", res.data.data);
+        dispatch(getuserById());
+      })
       .catch((error) => console.log(error));
   };
   return (

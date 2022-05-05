@@ -5,6 +5,8 @@ import SendIcon from "@mui/icons-material/Send";
 import ChatBubbleIcon from "@mui/icons-material/ChatBubble";
 import Like from "./Like";
 import Share from "./Share";
+import { getPostList } from "../../../store/actions/PostAction";
+import { useDispatch } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   maincont: {
@@ -38,6 +40,7 @@ const useStyles = makeStyles((theme) => ({
 const CommentandLike = ({ postId }) => {
   const classes = useStyles();
 
+  const dispatch = useDispatch();
   const [cmt, setCmt] = useState({
     comment: "",
     parentId: 0,
@@ -69,6 +72,7 @@ const CommentandLike = ({ postId }) => {
         setCmt({
           comment: "",
         });
+        dispatch(getPostList());
       })
       .catch((error) => {
         console.log(error);

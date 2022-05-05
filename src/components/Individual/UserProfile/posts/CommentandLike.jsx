@@ -5,6 +5,8 @@ import { api } from "../../../../helper/instance";
 import SendIcon from "@mui/icons-material/Send";
 import Like from "./Like";
 import Share from "./Share";
+import { getuserById } from "../../../../store/actions/UserAction";
+import { useDispatch } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   lcs: {
@@ -42,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
 
 const CommentandLike = ({ postId }) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
   const [cmt, setCmt] = useState({
     comment: "",
     parentId: 0,
@@ -73,6 +76,7 @@ const CommentandLike = ({ postId }) => {
         setCmt({
           comment: "",
         });
+        dispatch(getuserById());
       })
       .catch((error) => {
         console.log(error);

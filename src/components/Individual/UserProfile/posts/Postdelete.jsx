@@ -2,7 +2,6 @@ import React from "react";
 import { Menu, MenuItem } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
-import { getPostList } from "../../../../store/actions/PostAction";
 import { useDispatch } from "react-redux";
 import { api } from "../../../../helper/instance";
 import { getuserById } from "../../../../store/actions/UserAction";
@@ -24,7 +23,6 @@ const Postdelete = ({ postId }) => {
       .delete(`post/${postId}`)
       .then((res) => {
         console.log(res);
-        // dispatch(getPostList());
         dispatch(getuserById());
       })
       .catch((error) => console.log(error));
