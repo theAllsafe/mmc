@@ -104,13 +104,15 @@ const Postlist = () => {
                   </div>
                 </div>
                 <div style={{ position: "relative" }}>
-                  <div className={`flex justify-center ${classes.uploadcon}`}>
-                    <img
-                      src={data.image}
-                      alt="uploadedpic1"
-                      className={` ${classes.uploadpic}`}
-                    />
-                  </div>
+                  {data.image != null && data.image != "" ? (
+                    <div className={`flex justify-center ${classes.uploadcon}`}>
+                      <img
+                        src={data.image}
+                        alt="uploadedpic1"
+                        className={` ${classes.uploadpic}`}
+                      />
+                    </div>
+                  ) : null}
                   <CommentandLike postId={data} />
                 </div>
                 {/* total likes and comments */}
