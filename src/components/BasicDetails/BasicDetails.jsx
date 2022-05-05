@@ -164,7 +164,7 @@ const BasicDetails = () => {
       .post(`user/personal`, body)
       .then((res) => {
         console.log("person", res.data);
-        history.push("/OtherDetails/" + res.data.user.id);
+        history.push("/OtherDetails/" + res.data.data.id);
       })
       .catch((error) => {
         console.log(error);

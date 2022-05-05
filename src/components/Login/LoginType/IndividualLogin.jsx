@@ -214,7 +214,7 @@ const IndividualLogin = () => {
         .then((res) => {
           console.log("loginwithphone", res);
           cookies.set("access_token", res.data.data.token);
-          console.log(cookies.set("access_token", res.data.data.token));
+          // console.log(cookies.set("access_token", res.data.data.token));
           dispatch(setIsAuth(true));
           history.push("/feed");
         })

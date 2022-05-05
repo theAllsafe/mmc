@@ -218,7 +218,7 @@ const UserProfilePage = () => {
                   <Friends />
                 </div>
                 {/* postList */}
-                <UserPost post={user} />
+                <UserPost />
               </div>
             </div>
           </>

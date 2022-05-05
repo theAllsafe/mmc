@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { makeStyles } from "@material-ui/core/styles";
 import moment from "moment";
 import TotalLikes from "./TotalLikes";
 import CommentandLike from "./CommentandLike";
+import Postdelete from "./Postdelete";
+import { useDispatch, useSelector } from "react-redux";
+import { getuserById } from "../../../../store/actions/UserAction";
 
 const useStyles = makeStyles((theme) => ({
   feedpost: {
@@ -64,30 +67,36 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const UserPost = ({ post }) => {
+const UserPost = () => {
+  const dispatch = useDispatch();
   const classes = useStyles();
+  const { userList } = useSelector((state) => state.user);
+  useEffect(() => {
+    dispatch(getuserById());
+  }, []);
   return (
     <>
       <div className="lg:col-span-8 ">
-        {post &&
-          post?.posts?.map((data) => {
+        {userList &&
+          userList?.posts?.map((data) => {
             return (
               <>
                 <div className={`${classes.feedpost}`} key={data.id}>
                   <div className="profilein flex flex-row mt-1.5 p-4">
                     <img
-                      src={post.image}
+                      src={userList.image}
                       alt="profilepic"
                       className="w-12 h-12 border-0 rounded-full"
                     />
                     <div className="w-4/5 flex flex-col text-left pl-3">
-                      <p>{post.fName + "" + post.lName}</p>
+                      <p>{userList.fName + "" + userList.lName}</p>
                       <p className="text-slate-300 text-sm">
                         <i>{moment(data.createdAt).format("DD-MM-YYYY")}</i>
                       </p>
                     </div>
                     <div>
-                      <MoreVertIcon />
+                      {/* postdelete */}
+                      <Postdelete postId={data.id} />
                     </div>
                   </div>
                   <div>{data.description}</div>

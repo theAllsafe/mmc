@@ -119,7 +119,7 @@ const Feed = () => {
               {/* recommended job */}
               <Recommendedjobs />
               {/* Post check */}
-              <Postcheck />
+              {/* <Postcheck /> */}
             </div>
             <div className="lg:col-span-6">
               <div
@@ -197,7 +197,7 @@ const Feed = () => {
               {/* need help  */}
               <Help />
               {/* purchase */}
-              <Purchase />
+              {/* <Purchase /> */}
               {/* advert */}
               <Advert />
             </div>

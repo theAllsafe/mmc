@@ -111,7 +111,7 @@ const UploadProfilePage = () => {
       .post(`user/image`, body)
       .then((res) => {
         console.log("img is ", res.data);
-        history.push("/Password/" + res.data.user.id);
+        history.push("/Password/" + res.data.data.id);
       })
       .catch((error) => {
         console.log(error);

@@ -80,7 +80,7 @@ const OtherDetails = () => {
       .post(`user/musjid`, body)
       .then((res) => {
         console.log("otherdetails", res.data);
-        history.push("/UploadProfilePage/" + res.data.user.id);
+        history.push("/UploadProfilePage/" + res.data.data.id);
       })
       .catch((error) => {
         console.log(error);
