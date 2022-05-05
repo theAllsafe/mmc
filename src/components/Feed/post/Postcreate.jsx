@@ -11,6 +11,8 @@ import MenuItem from "@mui/material/MenuItem";
 import Button from "@mui/material/Button";
 import PhotoCameraOutlinedIcon from "@mui/icons-material/PhotoCameraOutlined";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { useDispatch } from "react-redux";
+import { getPostList } from "../../../store/actions/PostAction";
 
 const useStyles = makeStyles((theme) => ({
   maincont: {
@@ -29,6 +31,7 @@ const useStyles = makeStyles((theme) => ({
 const Postcreate = () => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const dispatch = useDispatch();
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -87,6 +90,7 @@ const Postcreate = () => {
           description: "",
         });
         setImage("");
+        dispatch(getPostList());
         // window.location.reload();
       })
       .catch((error) => {
