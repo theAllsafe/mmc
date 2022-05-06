@@ -4,6 +4,8 @@ import SwitchUnstyled, {
   switchUnstyledClasses,
 } from "@mui/base/SwitchUnstyled";
 import { styled } from "@mui/system";
+import { getNotificationList } from "../../store/actions/NotificationAction";
+import { useDispatch } from "react-redux";
 
 const Root = styled("span")(
   ({ theme }) => `
@@ -82,6 +84,7 @@ const Comment = ({ notificationList }) => {
   const [social_CommentNotification, setSocial_CommentNotification] = useState(
     notificationList?.setSocial_CommentNotification
   );
+  const dispatch = useDispatch();
   const handleNotification = () => {
     api
       .post(`notification/add`, {
@@ -100,6 +103,7 @@ const Comment = ({ notificationList }) => {
         if (res.data.status === true) {
           alert(res.data.message);
           console.log(res.data);
+          dispatch(getNotificationList());
         }
       })
       .catch((error) => {
@@ -117,7 +121,7 @@ const Comment = ({ notificationList }) => {
             {...label}
             name="social_CommentNotification"
             value={social_CommentNotification}
-            defaultChecked={
+            checked={
               notificationList?.social_CommentNotification ||
               social_CommentNotification
             }

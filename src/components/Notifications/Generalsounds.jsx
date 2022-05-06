@@ -4,6 +4,8 @@ import SwitchUnstyled, {
   switchUnstyledClasses,
 } from "@mui/base/SwitchUnstyled";
 import { styled } from "@mui/system";
+import { useDispatch } from "react-redux";
+import { getNotificationList } from "../../store/actions/NotificationAction";
 
 const Root = styled("span")(
   ({ theme }) => `
@@ -82,6 +84,8 @@ const Generalsounds = ({ notificationList }) => {
     notificationList?.general_Sounds
   );
 
+  const dispatch = useDispatch();
+
   const handleNotification = () => {
     api
       .post(`notification/add`, {
@@ -100,6 +104,7 @@ const Generalsounds = ({ notificationList }) => {
         if (res.data.status === true) {
           alert(res.data.message);
           console.log(res.data);
+          dispatch(getNotificationList());
         }
       })
       .catch((error) => {
@@ -117,7 +122,7 @@ const Generalsounds = ({ notificationList }) => {
             {...label}
             name="general_Sounds"
             value={general_Sounds}
-            defaultChecked={notificationList?.general_Sounds || general_Sounds}
+            checked={notificationList?.general_Sounds || general_Sounds}
             onChange={(e) => setGeneral_Sounds(e.target.checked)}
             onClick={handleNotification}
           />

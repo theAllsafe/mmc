@@ -4,6 +4,8 @@ import SwitchUnstyled, {
   switchUnstyledClasses,
 } from "@mui/base/SwitchUnstyled";
 import { styled } from "@mui/system";
+import { getNotificationList } from "../../store/actions/NotificationAction";
+import { useDispatch } from "react-redux";
 
 const Root = styled("span")(
   ({ theme }) => `
@@ -82,6 +84,7 @@ const Chatmessage = ({ notificationList }) => {
   const [chat_MessageNotification, setChat_MessageNotification] = useState(
     notificationList?.chat_MessageNotification
   );
+  const dispatch = useDispatch();
 
   const handleNotification = () => {
     api
@@ -101,6 +104,7 @@ const Chatmessage = ({ notificationList }) => {
         if (res.data.status === true) {
           alert(res.data.message);
           console.log(res.data);
+          dispatch(getNotificationList());
         }
       })
       .catch((error) => {
@@ -119,7 +123,7 @@ const Chatmessage = ({ notificationList }) => {
             {...label}
             name="chat_MessageNotification"
             value={chat_MessageNotification}
-            defaultChecked={
+            checked={
               notificationList?.chat_MessageNotification ||
               chat_MessageNotification
             }

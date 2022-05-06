@@ -134,6 +134,7 @@ export default function Notifications() {
         if (res.data.status === true) {
           alert(res.data.message);
           console.log(res.data);
+          dispatch(getNotificationList());
         }
       })
       .catch((error) => {
@@ -170,7 +171,7 @@ export default function Notifications() {
                   {...label}
                   name="general_Notifications"
                   value={general_Notifications}
-                  defaultChecked={notificationList?.general_Notifications}
+                  checked={notificationList?.general_Notifications}
                   onChange={(e) => setGeneral_Notification(e.target.checked)}
                   onClick={handleNotification}
                 />

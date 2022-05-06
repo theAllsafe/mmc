@@ -4,6 +4,8 @@ import SwitchUnstyled, {
   switchUnstyledClasses,
 } from "@mui/base/SwitchUnstyled";
 import { styled } from "@mui/system";
+import { getNotificationList } from "../../store/actions/NotificationAction";
+import { useDispatch } from "react-redux";
 
 const Root = styled("span")(
   ({ theme }) => `
@@ -83,6 +85,8 @@ const Friendrequest = ({ notificationList }) => {
     social_FriendRequestNotification,
     setSocial_FriendRequestNotification,
   ] = useState(notificationList?.social_FriendRequestNotification);
+  const dispatch = useDispatch();
+
   const handleNotification = () => {
     api
       .post(`notification/add`, {
@@ -101,6 +105,7 @@ const Friendrequest = ({ notificationList }) => {
         if (res.data.status === true) {
           alert(res.data.message);
           console.log(res.data);
+          dispatch(getNotificationList());
         }
       })
       .catch((error) => {
@@ -118,7 +123,7 @@ const Friendrequest = ({ notificationList }) => {
             {...label}
             name="social_FriendRequestNotification"
             value={social_FriendRequestNotification}
-            defaultChecked={
+            checked={
               notificationList?.social_FriendRequestNotification ||
               social_FriendRequestNotification
             }

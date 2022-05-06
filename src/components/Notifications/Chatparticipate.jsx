@@ -4,6 +4,8 @@ import SwitchUnstyled, {
   switchUnstyledClasses,
 } from "@mui/base/SwitchUnstyled";
 import { styled } from "@mui/system";
+import { getNotificationList } from "../../store/actions/NotificationAction";
+import { useDispatch } from "react-redux";
 
 const Root = styled("span")(
   ({ theme }) => `
@@ -81,6 +83,8 @@ const grey = {
 const Chatparticipate = ({ notificationList }) => {
   const [chat_ParticipateNotifiaction, setChat_ParticipateNotifiaction] =
     useState(notificationList?.chat_ParticipateNotifiaction);
+
+  const dispatch = useDispatch();
   const handleNotification = () => {
     api
       .post(`notification/add`, {
@@ -99,6 +103,7 @@ const Chatparticipate = ({ notificationList }) => {
         if (res.data.status === true) {
           alert(res.data.message);
           console.log(res.data);
+          dispatch(getNotificationList());
         }
       })
       .catch((error) => {
@@ -117,7 +122,7 @@ const Chatparticipate = ({ notificationList }) => {
             {...label}
             name="chat_ParticipateNotifiaction"
             value={chat_ParticipateNotifiaction}
-            defaultChecked={
+            checked={
               notificationList?.chat_ParticipateNotifiaction ||
               chat_ParticipateNotifiaction
             }
