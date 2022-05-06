@@ -97,6 +97,7 @@ const Chatparticipate = ({ notificationList }) => {
       .then((res) => {
         console.log("notification is", res);
         if (res.data.status === true) {
+          alert(res.data.message);
           console.log(res.data);
         }
       })

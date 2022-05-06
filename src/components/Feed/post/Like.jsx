@@ -36,6 +36,7 @@ const Like = ({ postId }) => {
       .then((res) => {
         console.log("like is", res.data.data);
         if (res.data.status === true) {
+          alert("user liked post successfully");
           dispatch(getPostList());
         }
       })

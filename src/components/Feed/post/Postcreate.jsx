@@ -86,6 +86,7 @@ const Postcreate = () => {
         console.log("post is ", res);
         // history.push("/postlist.jsx", res);
         if (res.data.status === true) {
+          alert(res.data.message);
           setPost({
             image: "",
             description: "",

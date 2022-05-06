@@ -24,6 +24,7 @@ const Postdelete = ({ postId }) => {
       .then((res) => {
         console.log(res);
         if (res.data.status === true) {
+          alert("post deleted successfully");
           dispatch(getuserById());
         }
       })

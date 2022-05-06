@@ -129,11 +129,14 @@ export default function Security() {
       .put(`user/passwordchange`, body)
       .then((res) => {
         console.log(res);
-        setUpdate({
-          currentPassword: "",
-          newPassword: "",
-          RePassword: "",
-        });
+        if (res.data.status === true) {
+          alert(res.data.message);
+          setUpdate({
+            currentPassword: "",
+            newPassword: "",
+            RePassword: "",
+          });
+        }
       })
       .catch((error) => console.log(error));
   };

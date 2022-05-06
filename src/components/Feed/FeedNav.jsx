@@ -9,6 +9,9 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import Button from "@mui/material/Button";
+import Stack from "@mui/material/Stack";
+import Cookies from "universal-cookie";
 // import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import AppsIcon from "@mui/icons-material/Apps";
 
@@ -97,6 +100,12 @@ const useStyles = makeStyles((theme) => ({
 
 const FeedNav = () => {
   const classes = useStyles();
+  const cookies = new Cookies();
+
+  const logoutuser = () => {
+    cookies.remove("access_token");
+    window.location.reload();
+  };
 
   return (
     <div className={`w-full h-16 items-center ${classes.fullnavbar}`}>
@@ -156,6 +165,13 @@ const FeedNav = () => {
               />
             </Link>
           </div>
+        </div>
+        <div className="mt-3">
+          <Stack direction="row" spacing={2}>
+            <Button variant="contained" onClick={logoutuser}>
+              Logout
+            </Button>
+          </Stack>
         </div>
       </div>
     </div>

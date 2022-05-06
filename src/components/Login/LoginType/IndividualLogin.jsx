@@ -82,7 +82,7 @@ const IndividualLogin = () => {
   const [otpVerify, setOtpVerify] = useState("verify");
 
   const displayEmailCode = () => {
-    if (phonevalidation(phone.phone)) {
+    if (emailvalidation(email.email)) {
       setShowResults(true);
       api
         .post(`user/logInOtpEmail`, { email: logindata.email })
@@ -104,7 +104,7 @@ const IndividualLogin = () => {
   };
 
   const displayPhoneCode = () => {
-    if (emailvalidation(email.email)) {
+    if (phonevalidation(phone.phone)) {
       setShowResults(true);
 
       api
@@ -136,6 +136,7 @@ const IndividualLogin = () => {
         .then((res) => {
           console.log("verifyphoneotp", res);
           if (res.data.status === true) {
+            alert("otp verify successfully");
             history.push("/");
           } else {
             alert("otp not verify");
@@ -155,6 +156,7 @@ const IndividualLogin = () => {
         .then((res) => {
           console.log("verifyemailotp", res);
           if (res.data.status === true) {
+            alert("otp verify successfully");
             history.push("/");
           } else {
             alert("otp not verify");

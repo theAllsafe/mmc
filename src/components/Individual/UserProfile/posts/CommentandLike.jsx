@@ -74,6 +74,7 @@ const CommentandLike = ({ postId }) => {
       .then((res) => {
         console.log("comment", res.data.data);
         if (res.data.status === true) {
+          alert(res.data.message);
           setCmt({
             comment: "",
           });

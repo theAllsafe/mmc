@@ -123,6 +123,9 @@ const BasicDetails = () => {
       })
       .then((res) => {
         console.log("verifyotp", res);
+        if (res.data.status === true) {
+          alert("otp verify successfully");
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -138,6 +141,9 @@ const BasicDetails = () => {
       })
       .then((res) => {
         console.log("verifyotp", res);
+        if (res.data.status === true) {
+          alert("otp verify successfully");
+        }
       })
       .catch((error) => {
         console.log(error);

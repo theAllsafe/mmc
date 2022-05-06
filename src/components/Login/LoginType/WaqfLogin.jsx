@@ -104,6 +104,7 @@ const WaqfLogin = () => {
         .then((res) => {
           console.log("verifyphoneotp", res);
           if (res.data.status === true) {
+            alert("otp verify successfully");
             history.push("/");
           } else {
             alert("otp not verify");
