@@ -71,8 +71,16 @@ const BasicDetails = () => {
       setIsValid(true);
       api
         .post(`user/signInEmailToOtp`, { email: body.email })
-        .then((res) => console.log("otp", res))
-        .catch((error) => console.log(error));
+        .then((res) => {
+          console.log("otp", res);
+          if (res.data.status === true) {
+            alert("Otp has been send to email");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          alert("Something Wrong!!!!");
+        });
       console.log(body.email);
       setShowEBox(true);
       ebtnColor === "#46D490"
@@ -87,8 +95,16 @@ const BasicDetails = () => {
       setIsValid(true);
       api
         .post(`user/signInPhoneToOtp`, { phone: body.phone })
-        .then((res) => console.log("otp", res))
-        .catch((error) => console.log(error));
+        .then((res) => {
+          console.log("otp", res);
+          if (res.data.status === true) {
+            alert("Otp has been send to phone");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          alert("Something Wrong!!!!");
+        });
       console.log(body.phone);
       setShowPBox(true);
       pbtnColor === "#46D490"
@@ -110,6 +126,7 @@ const BasicDetails = () => {
       })
       .catch((error) => {
         console.log(error);
+        alert("Something Wrong!!!!");
       });
   };
 
@@ -124,6 +141,7 @@ const BasicDetails = () => {
       })
       .catch((error) => {
         console.log(error);
+        alert("Something Wrong!!!!");
       });
   };
 
@@ -164,10 +182,13 @@ const BasicDetails = () => {
       .post(`user/personal`, body)
       .then((res) => {
         console.log("person", res.data);
-        history.push("/OtherDetails/" + res.data.data.id);
+        if (res.data.status === true) {
+          history.push("/OtherDetails/" + res.data.data.id);
+        }
       })
       .catch((error) => {
         console.log(error);
+        alert("Something Wrong!!!!");
       });
   };
 

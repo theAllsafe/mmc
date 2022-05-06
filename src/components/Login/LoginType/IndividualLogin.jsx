@@ -13,6 +13,7 @@ import { useHistory } from "react-router-dom";
 import { setIsAuth } from "../../../store/actions/Auth";
 import Cookies from "universal-cookie";
 import { emailvalidation, phonevalidation } from "../../../helper/utils";
+
 // import { emailvalidation, phonevalidation } from "../../helper/utils";
 
 // import { SHOW_TOAST } from "../store/constant/types";
@@ -85,8 +86,16 @@ const IndividualLogin = () => {
       setShowResults(true);
       api
         .post(`user/logInOtpEmail`, { email: logindata.email })
-        .then((res) => console.log("otp", res))
-        .catch((error) => console.log(error));
+        .then((res) => {
+          console.log("otp", res);
+          if (res.data.status === true) {
+            alert("Otp has been send to email");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          alert("Something wrong!!!!!");
+        });
       console.log(logindata.email);
       ebtnColor === "#46D490"
         ? setEBtnColor("#5C5C5C")
@@ -100,8 +109,16 @@ const IndividualLogin = () => {
 
       api
         .post(`user/logInOtpPhone`, { phone: logindata.phone })
-        .then((res) => console.log("otp", res))
-        .catch((error) => console.log(error));
+        .then((res) => {
+          console.log("otp", res);
+          if (res.data.status === true) {
+            alert("Otp has been send to phone");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          alert("Something wrong!!!!!");
+        });
       console.log(logindata.phone);
       pbtnColor === "#46D490"
         ? setPBtnColor("#5C5C5C")
@@ -118,10 +135,15 @@ const IndividualLogin = () => {
         })
         .then((res) => {
           console.log("verifyphoneotp", res);
-          history.push("/");
+          if (res.data.status === true) {
+            history.push("/");
+          } else {
+            alert("otp not verify");
+          }
         })
         .catch((error) => {
           console.log(error);
+          alert("Something wrong!!!!!");
         });
     }
     if (hideEmail === false) {
@@ -132,10 +154,15 @@ const IndividualLogin = () => {
         })
         .then((res) => {
           console.log("verifyemailotp", res);
-          history.push("/");
+          if (res.data.status === true) {
+            history.push("/");
+          } else {
+            alert("otp not verify");
+          }
         })
         .catch((error) => {
           console.log(error);
+          alert("Something wrong!!!!!");
         });
     }
 
@@ -222,16 +249,19 @@ const IndividualLogin = () => {
           password: logindata.password,
         })
         .then((res) => {
-          if (res.data.status == true) {
-            console.log("loginwithphone", res);
+          console.log("loginwithphone", res);
+          if (res.data.status === true) {
             cookies.set("access_token", res.data.data.token);
             console.log(cookies.set("access_token", res.data.data.token));
             dispatch(setIsAuth(true));
             history.push("/feed");
+          } else {
+            alert(res.data.message);
           }
         })
         .catch((error) => {
           console.log(error);
+          alert("Something wrong!!!!!");
         });
     }
     if (hideEmail === false) {
@@ -241,17 +271,20 @@ const IndividualLogin = () => {
           password: logindata.password,
         })
         .then(function (res) {
-          if (res.data.status == true) {
-            console.log("loginWithemail", res);
+          console.log("loginWithemail", res);
+          if (res.data.status === true) {
             cookies.set("access_token", res?.data?.data?.token);
             console.log(cookies.set("access_token", res?.data?.data?.token));
             console.log("get", cookies.get("access_token"));
             dispatch(setIsAuth(true));
             history.push("/feed");
+          } else {
+            alert(res.data.message);
           }
         })
         .catch((error) => {
           console.log(error);
+          alert("Something wrong!!!!!");
         });
     }
   };
@@ -431,14 +464,13 @@ const IndividualLogin = () => {
                 <ArrowBackIcon /> Back{" "}
               </p>
             </Link>
-            <Link>
-              <p
-                className="h-15 w-36 px-9 mb-2 py-2.5 ml-4 md:ml-60 lg:ml-4 xl:ml-72 bg-green-400 rounded-md text-sm text-white font-bold"
-                onClick={handleLogin}
-              >
-                Login <ArrowForwardIcon />
-              </p>
-            </Link>
+
+            <p
+              className="h-15 w-36 px-9 mb-2 py-2.5 ml-4 md:ml-60 lg:ml-4 xl:ml-72 bg-green-400 rounded-md text-sm text-white font-bold"
+              onClick={handleLogin}
+            >
+              Login <ArrowForwardIcon />
+            </p>
           </div>
         </div>
       </div>

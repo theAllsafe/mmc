@@ -69,13 +69,16 @@ const CommentandLike = ({ postId }) => {
       .post(`comment/create`, commentbody)
       .then((res) => {
         console.log("comment", res.data.data);
-        setCmt({
-          comment: "",
-        });
-        dispatch(getPostList());
+        if (res.data.status === true) {
+          setCmt({
+            comment: "",
+          });
+          dispatch(getPostList());
+        }
       })
       .catch((error) => {
         console.log(error);
+        alert("Something Wrong!!!!!");
       });
   };
 

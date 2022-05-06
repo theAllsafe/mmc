@@ -111,10 +111,15 @@ const UploadProfilePage = () => {
       .post(`user/image`, body)
       .then((res) => {
         console.log("img is ", res.data);
-        history.push("/Password/" + res.data.data.id);
+        if (res.data.status === true) {
+          history.push("/Password/" + res.data.data.id);
+        } else {
+          alert(res.data.message);
+        }
       })
       .catch((error) => {
         console.log(error);
+        alert("Something wrong!!!!!");
       });
   };
 

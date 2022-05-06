@@ -80,10 +80,15 @@ const Password = () => {
       .post(`user/password`, body)
       .then((res) => {
         console.log("password", res.data);
-        history.push("/Complete");
+        if (res.data.status === true) {
+          history.push("/Complete");
+        } else {
+          alert(res.data.message);
+        }
       })
       .catch((error) => {
         console.log(error);
+        alert("Something wrong!!!!!");
       });
   };
 

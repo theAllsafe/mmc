@@ -31,9 +31,14 @@ const Like = ({ postId }) => {
       })
       .then((res) => {
         console.log("like is", res.data.data);
-        dispatch(getuserById());
+        if (res.data.status === true) {
+          dispatch(getuserById());
+        }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        alert("Something Wrong!!!!!");
+      });
   };
   return (
     <>

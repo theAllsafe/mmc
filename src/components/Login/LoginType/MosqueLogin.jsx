@@ -74,8 +74,16 @@ const MosqueLogin = () => {
       setShowResults(true);
       api
         .post(`user/logInOtpPhone`, { phone: logindata.phone })
-        .then((res) => console.log("otp", res))
-        .catch((error) => console.log(error));
+        .then((res) => {
+          console.log("otp", res);
+          if (res.data.status === true) {
+            alert("Otp has been send to phone");
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+          alert("Something wrong!!!!!");
+        });
       console.log(logindata.phone);
       pbtnColor === "#46D490"
         ? setPBtnColor("#5C5C5C")
@@ -95,10 +103,15 @@ const MosqueLogin = () => {
         })
         .then((res) => {
           console.log("verifyphoneotp", res);
-          history.push("/");
+          if (res.data.status === true) {
+            history.push("/");
+          } else {
+            alert("otp not verify");
+          }
         })
         .catch((error) => {
           console.log(error);
+          alert("Something wrong!!!!!");
         });
     }
     if (text === "verify") {
@@ -184,15 +197,20 @@ const MosqueLogin = () => {
           password: logindata.password,
         })
         .then((res) => {
-          if (res.data.status == true) {
-            console.log("loginwithphone", res);
+          console.log("loginwithphone", res);
+
+          if (res.data.status === true) {
+            console.log(res.data.message);
             cookies.set("access_token", res.data.data.token);
             dispatch(setIsAuth(true));
             history.push("/feed");
+          } else {
+            alert(res.data.message);
           }
         })
         .catch((error) => {
-          console.log(error);
+          console.log("error", error);
+          alert("Something wrong!!!!!");
         });
     }
     if (hideId === false) {
@@ -202,15 +220,18 @@ const MosqueLogin = () => {
           password: logindata.password,
         })
         .then((res) => {
-          if (res.data.status == true) {
-            console.log("loginWithemail", res);
+          console.log("loginWithemail", res);
+          if (res.data.status === true) {
             cookies.set("access_token", res.data.data.token);
             dispatch(setIsAuth(true));
             history.push("/feed");
+          } else {
+            alert(res.data.message);
           }
         })
         .catch((error) => {
           console.log(error);
+          alert("Something wrong!!!!!");
         });
     }
   };
@@ -387,14 +408,13 @@ const MosqueLogin = () => {
                 <ArrowBackIcon /> Back{" "}
               </p>
             </Link>
-            <Link to="/">
-              <p
-                className="h-15 w-36 px-9 mb-2 py-2.5 ml-4 md:ml-60 lg:ml-16 xl:ml-72 bg-green-400 rounded-md text-sm text-white font-bold"
-                onClick={handleLogin}
-              >
-                Login <ArrowForwardIcon />{" "}
-              </p>
-            </Link>
+
+            <p
+              className="h-15 w-36 px-9 mb-2 py-2.5 ml-4 md:ml-60 lg:ml-16 xl:ml-72 bg-green-400 rounded-md text-sm text-white font-bold"
+              onClick={handleLogin}
+            >
+              Login <ArrowForwardIcon />{" "}
+            </p>
           </div>
         </div>
       </div>

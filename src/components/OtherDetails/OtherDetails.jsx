@@ -80,10 +80,15 @@ const OtherDetails = () => {
       .post(`user/musjid`, body)
       .then((res) => {
         console.log("otherdetails", res.data);
-        history.push("/UploadProfilePage/" + res.data.data.id);
+        if (res.data.status === true) {
+          history.push("/UploadProfilePage/" + res.data.data.id);
+        } else {
+          alert(res.data.message);
+        }
       })
       .catch((error) => {
         console.log(error);
+        alert("Something wrong!!!!!");
       });
   };
 

@@ -7,12 +7,14 @@ export const getJobList = () => {
       .get(`admin/job/joblist`)
       .then((response) => {
         console.log(`🚀 - return - Joblist`, response);
-        const data = response.data.data;
-        // console.log(data);
-        dispatch({
-          type: GET_JOB_LIST,
-          payload: data,
-        });
+        if (response.data.status === true) {
+          const data = response.data.data;
+          // console.log(data);
+          dispatch({
+            type: GET_JOB_LIST,
+            payload: data,
+          });
+        }
       })
       .catch((error) => {
         dispatch({ type: SHOW_TOAST, payload: error.message });

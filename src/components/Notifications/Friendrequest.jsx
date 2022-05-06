@@ -97,9 +97,15 @@ const Friendrequest = ({ notificationList }) => {
           notificationList?.chat_ParticipateNotifiaction,
       })
       .then((res) => {
-        console.log(res.data);
+        console.log("notification is", res);
+        if (res.data.status === true) {
+          console.log(res.data);
+        }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        alert("Something Wrong!!!!!");
+      });
   };
   const label = { componentsProps: { input: { "aria-label": "Demo switch" } } };
   return (

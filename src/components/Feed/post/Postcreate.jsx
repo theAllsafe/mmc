@@ -85,16 +85,18 @@ const Postcreate = () => {
       .then((res) => {
         console.log("post is ", res);
         // history.push("/postlist.jsx", res);
-        setPost({
-          image: "",
-          description: "",
-        });
-        setImage("");
-        dispatch(getPostList());
-        // window.location.reload();
+        if (res.data.status === true) {
+          setPost({
+            image: "",
+            description: "",
+          });
+          setImage("");
+          dispatch(getPostList());
+        }
       })
       .catch((error) => {
         console.log(error);
+        alert("Something Wrong!!!");
       });
   };
 

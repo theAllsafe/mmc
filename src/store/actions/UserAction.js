@@ -7,11 +7,13 @@ export const getuserById = () => {
       .get(`user`)
       .then((response) => {
         console.log(`🚀 - return - User`, response);
-        const data = response.data.data[0];
-        dispatch({
-          type: GET_USER_ID,
-          payload: data,
-        });
+        if (response.data.status === true) {
+          const data = response.data.data[0];
+          dispatch({
+            type: GET_USER_ID,
+            payload: data,
+          });
+        }
       })
       .catch((error) => {
         dispatch({ type: SHOW_TOAST, payload: error.message });

@@ -23,9 +23,14 @@ const Postdelete = ({ postId }) => {
       .delete(`post/${postId}`)
       .then((res) => {
         console.log(res);
-        dispatch(getuserById());
+        if (res.data.status === true) {
+          dispatch(getuserById());
+        }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        alert("Something Wrong!!!!!");
+      });
   };
   return (
     <>

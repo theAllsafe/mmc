@@ -7,11 +7,13 @@ export const getproductList = () => {
       .get(`admin/products/productlist`)
       .then((response) => {
         console.log(`🚀 - return - ProductList`, response);
-        const { data } = response.data;
-        dispatch({
-          type: GET_PRODUCT_LIST,
-          payload: data,
-        });
+        if (response.data.status === true) {
+          const { data } = response.data;
+          dispatch({
+            type: GET_PRODUCT_LIST,
+            payload: data,
+          });
+        }
       })
       .catch((error) => {
         dispatch({ type: SHOW_TOAST, payload: error.message });
